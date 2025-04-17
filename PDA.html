@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\stylesheet.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <link href="img\Logo.png" rel="icon" type="image/x-icon"/>
+    <title>Informatik Studium</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Programmierung, Datenstrukturen und Algorithmen</h1>
+        <nav class="navigation">
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section1">01. Automaten</a></li>
+                    <li><a href="#section2">02. Arrays</a></li>
+                    <li><a href="#section3">03. Selection Sort</a></li>
+                    <li><a href="#section4">04. Bubble Sort</a></li>
+                    <li><a href="#section5">05. Insertion Sort</a></li>
+                    <li><a href="#section6">06. Quick Sort</a></li>
+                    <li><a href="#section7">07. Merge Sort</a></li>
+                    <li><a href="#section8">08. Klassen und Objekte</a></li>
+                </ul>
+            </div>
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section9">09. JUnit Test</a></li>
+                    <li><a href="#section10">10. Linked Lists</a></li>
+                    <li><a href="#section11">11. Bäume</a></li>
+                    <li><a href="#section12">12. AVL-Bäume</a></li>
+                    <li><a href="#section13">13. Hashing</a></li>
+                    <li><a href="#section14">14. Heap Sort</a></li>
+                    <li><a href="#section15">15. Entscheidungsbäume</a></li>
+                    <li><a href="#section16">16. Graphen</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            <p class="p-center">
+               <a href="#section17">17. Klausurthemen</a> 
+            </p>
+        </div>
+    </div>
+
+    <div class="container" id="section1">
+        <h1>Automaten</h1>
+        <h2>Grammatiken in EBNF-Notation</h2>
+        <p>
+            <b>EBNF</b> steht für <b>Extended Backus-Naur-Form</b> und ist ein gängiger Formalismus zur Beschreibung von Syntax.<br>
+            Für die EBNF gelten folgende Konventionen:
+        </p>
+        <p>
+            <b> ::= </b> - Definition<br>
+            <b> | </b> - Alternativen<br>
+            <b> [ ] </b> - Optionale Elemente<br>
+            <b> { } </b> - Wiederholungen
+        </p>
+        <p>
+            <b>-</b> Terminalsymbole in Anführungszeichen <b>(Bsp. ,,+")</b><br>
+            <b>-</b> Links steht ein Nichtterminalsymbol <b>(Bsp. Arithmetic)</b><br>
+            <b>-</b> Zwischen Links und Rechts steht ein Gleichheitszeichen <b>(Bsp. Arithmetic = ,,+")</b><br>
+            <b>-</b> Rechts steht die Definition des Nichtterminalsymbols <b>(Bsp. Arithmetic = (Wert, ,,+", Wert) | (Wert, ,,-", Wert))</b>
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Automaten</h2>
+        <p>
+            Endliche Automaten sind Modelle zur Beschreibung von Prozessen, die in einer endlichen Anzahl von Schritten ablaufen.
+        </p>
+        <p>
+            Sie bestehen aus:<br>
+            - einer <b>Zustandsmenge</b>,<br>
+            - einem <b>Startzustand</b>,<br>
+            - einer <b>Entzustandsmenge</b>,<br>
+            - einem <b>Eingabealphabet</b>,<br>
+            - sowie <b>Zustandsübergänge</b>
+        </p>
+        <p>
+            Dargestellt werden diese als gerichtete Graphen:
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Automaten1.png">
+        <white-space></white-space>
+        <p>
+            <span class="blue">Knoten</span> (Kreise) repräsentieren Zustände.<br>
+            <span class="blue">Kanten</span> (Pfeile) repräsentieren Übergänge.<br>
+            <span class="blue">Startzustand</span> wird mit einem Eingangspfeil repräsentiert<br>
+            <span class="blue">Endzustand</span> wird mit einem Doppelkreis repräsentiert<br>
+        </p>
+        <white-space></white-space>
+        <p>
+            Nicht akzeptierte Eingaben können über einem speziellen Endzustand,<br>
+            einem <span class="red">Fehlerzustand F</span> eingefügt werden.
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Automaten2.png">
+        <white-space></white-space>
+
+        <h3>Beispiel DEA</h3>
+        <white-space></white-space>
+        <img class="center" src="img\Automaten3.png">
+        <white-space></white-space>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section2">
+        <h1>Arrays</h1>
+        <p>
+            Ein <b>Array</b> ist eine Datenstruktur die eine Sammlung von  gleichartigen Elementen enthält.<br>
+            Um Elemente in einem Array zu suchen, ist ein Arrays mit eindeutigen Elementen gegeben.
+        </p>
+        
+        <details>
+            <summary><h3>Implementierung: Sequentielle Suche</h3></summary>
+            <p>
+                Bedenke, dass in Java das kleinste Elemente 0 und nicht 1 ist.<br>
+                Heißt beispielsweise Nummer 7 befindet sich an Position 6.
+            </p>
+            <pre><code class="language-java">
+public class SequentialSearch {
+    int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    int key = 7;
+
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == key) {
+            System.out.println("Element gefunden an Position: " + i);
+            break;
+        }
+    }
+}
+            </code></pre>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section3">
+        <h1>Selection Sort</h1>
+
+        <p>
+            Ein <b>Array</b> ist eine Datenstruktur die eine Sammlung von Elementen enthält.<br>
+            Zum Sortieren von Arrays existieren verschiedene Sortieralgorithmen um Daten anhand von Schlüsseln zu sortieren.
+        </p>
+
+        <p>
+            Beim <b>Selection Sort</b> handelt es sich um einen Sortieralgorithmus, der <b>durch auswählen sortiert.</b>
+        </p>
+
+        <white-space></white-space>
+
+        <img class="center" src="img\SelectionSort1.png">
+
+        <trenn-strich></trenn-strich>
+
+        <img class="center" src="img\SelectionSort2.png">
+
+        <trenn-strich></trenn-strich>
+
+        <img class="center" src="img\SelectionSort3.png">
+
+        <trenn-strich></trenn-strich>
+
+        
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+        <pre><code class="language-java">
+public class Selectionsort {
+    int[] arr = { 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, 4358 };
+
+    for (int i = 0; i < arr.length - 1; i++) {
+
+        int min = i;
+
+        // Suche nach dem kleinsten Element
+        for (int j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+
+        // swap arr[min] und arr[i]
+        int temp = arr[min];
+        arr[min] = arr[i];
+        arr[i] = temp;
+    }
+}
+        </code></pre>
+    
+        <white-space></white-space>
+
+        <h3>Console output</h3>
+
+        <pre><code class="language-java">
+[1675, 2088, 3157, 4358, 5562, 6719, 7634, 8130, 9784]
+        </code></pre>
+
+        <white-space></white-space>
+
+        <h2>Kosten</h2>
+
+        <white-space></white-space>
+
+        <h3>Vergleichungen</h3>
+        <p>
+            <b>Maß:</b> Anzahl der Vergleichsoperationen<br>
+            Kosten der Suche nach dem kleinstem Element <b>arr[i:n-1]</b><br>
+            (Unabhängig von der Reihenfolge)
+        </p>
+        <p>
+            <b>Worst-Case: O(n^2)</b><br>
+            <b>Best-Case: O(n^2)</b><br>
+            <b>Average-Case: O(n^2)</b>
+        </p>
+        <p>
+            Worst-Case = Best-Case = Average-Case
+        </p>
+
+        <white-space></white-space>
+
+        <h3>Vertauschungen</h3>
+        <p>
+            <b>Maß:</b> Anzahl der Vertauschungsoperationen<br>
+            Vertauschungssequenz wird (unabhängig von der Reihenfolge der Elemente) <b>n - 1 mal</b> ausgeführt.
+        </p>
+        <p>
+            <b>Worst-Case: O(n)</b><br>
+            <b>Best-Case: O(n)</b><br>
+            <b>Average-Case: O(n)</b>
+        </p>
+        <p>
+            M min = M avg = M max = 3(n - 1) = O(n)<br>
+            bzw. Worst-Case = Best-Case = Average-Case
+        </p>
+        <white-space></white-space>
+        <p>
+            Kosten Vergleiche: <b>hoch (O(n^2))</b><br>
+            Kosten Vertauschungen: <b>gering (O(n))</b>
+        </p>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section4">
+        <h1>Bubble Sort</h1>
+        <p>
+            Der <b>Bubble Sort</b> ist ein Sortieralgorithmus, bei <b>"durch Aufsteigen sortiert wird."</b><br>
+            Dabei wird das Array durchlaufen und <b>benachbarte Elemente</b> vertauscht.
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\BubbleSort1.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\BubbleSort2.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\BubbleSort3.png">
+        <trenn-strich></trenn-strich>
+
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public class BubbleSort {
+    int[] arr = new int[] { 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, 4358 };
+
+    boolean changed = true;
+    int maxIndex =  arr.length - 1;
+
+    while (changed) {
+        changed = false;
+
+        for (int i = 0; i < maxIndex; i++) {
+            if (arr[i] > arr[i + 1]) {
+
+                // swap
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+
+                changed = true;
+            }
+        }
+        maxIndex--;
+    }
+}
+            </code></pre>
+
+            <h3>Console output</h3>
+            <pre><code class="language-java">
+[1675, 2088, 3157, 4358, 5562, 6719, 7634, 8130, 9784]
+            </code></pre>
+
+            <white-space></white-space>
+
+            <h2>Kosten</h2>
+            <p>
+                <b>Worst-Case: O(n^2)</b> (Array unsortiert, Algorithmus muss mehrmals durchlaufen)<br>
+                <b>Best-Case: O(n)</b> (Array bereits sortiert)<br>
+                <b>Average-Case: O(n^2)</b> (Array unsortiert, Algorithmus muss mehrmals durchlaufen)
+            </p>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section5">
+        <h1>Insertion Sort</h1>
+        <p>
+            Der <b>Insertion Sort</b> ist ein Sortieralgorithmus, bei dem <b>"durch Einfügen sortiert wird."</b><br>
+            Dabei wird das Array durchlaufen und <b>Elemente</b> an die richtige Stelle <b>eingefügt.</b>
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\InsertionSort1.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\InsertionSort2.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\InsertionSort3.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\InsertionSort4.png">
+        <white-space></white-space>
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public class InsertionSort {
+    int[] arr = new int[] { 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, 4358 };
+
+    for (int i = 1; i < arr.length; i++) {
+        int tmp = arr[i];
+        int j = i;
+
+        while (j > 0 && arr[j - 1] > tmp) {
+
+            // move keys to the right
+            arr[j] = arr[j - 1];
+            j--;
+        }
+        // insert value at its proper place
+        arr[j] = tmp;
+    }
+}
+            </code></pre>
+            <h3>Console output</h3>
+            <pre><code class="language-java">
+[ 1675, 2088, 3157, 4358, 5562, 6719, 7634, 8130, 9784 ]
+            </code></pre>
+            <white-space></white-space>
+            <h2>Kosten</h2>
+            <p>
+                <b>Worst-Case: O(n^2)</b> (Array falschrum sortiert)<br>
+                <b>Best-Case:</b> O(n) (wenn bereits sortiert -> Ein Durchlauf & keine Vertauschungen)<br>
+                <b>Average-Case: O(n^2)</b> (Array unsortiert)
+            </p>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section6">
+        <h1>Quick Sort</h1>
+
+        <p>
+            Der <b>Quick Sort</b> ist ein Algorithmus der ein unsortiertes Array in zwei Teil-Arrays aufteilt und diese
+            rekursiv sortiert. Dabei wählt man einen Pivot-Wert p. Dieser wird sortiert und das Array wird aufgeteilt.
+        </p>
+        <p>
+            Alle Elemente die <b>kleiner als p</b> sind, kommen in das <b>linke Teil-Array.</b><br>
+            Alle Elemente die <b>größer als p</b> sind, kommen in das <b>rechte Teil-Array.</b>
+        </p>
+        
+        <white-space></white-space>
+
+        <img class="center" src="img\QuickSort1.png">
+
+        <img class="center" src="img\QuickSort2.png">
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Analog</h2>
+        <p>
+            [ 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, <span class="red">4358</span>]<br>
+            [ 3157, 1675, <span class="green">2088</span> ] <span class="red">4358</span> [ 6719, 8130, 9784, 7634, <span class="green">5562</span> ]<br>
+            [ 1675 ] <span class="green">2088</span> [ 3157 ] <span class="red">4358</span> <span class="green">5562</span> [ 6719, 8130, 9784, <span class="blue">7634</span> ]<br>
+            [ 1675 ] <span class="green">2088</span> [ 3157 ] <span class="red">4358</span> <span class="green">5562</span> [ 6719 ] <span class="blue">7634</span> [ 8130, 9784 ]<br>
+            <br>
+            1675 2088 3157 4358 5562 6719 7634 8130 9784
+        </p>
+
+        <trenn-strich></trenn-strich>
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+
+        <pre><code class="language-java">
+public class QuickSort {
+
+    // Main
+    public static void main(String[] args) {
+        int[] arr = { 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, 4358 };
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    quickSort(arr, 0, arr.length - 1);
+    System.out.println("Sortiertes Array: ");
+
+    for (int i : arr) {
+    System.out.print(i + " ");
+    }
+
+    // Quick Sort
+    public static void QuickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
+
+    // Partition
+    public static void partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = (low - 1);
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+        return i + 1;
+    }
+}
+        </code></pre>
+        
+        <white-space></white-space>
+        
+        <h3>Console output</h3>
+
+        <pre><code class="language-java">
+[1675, 2088, 3157, 4358, 5562, 6719, 7634, 8130, 9784]
+        </code></pre>
+
+        <white-space></white-space>
+
+        <h2>Kosten</h2>
+        <p>
+            Maß: Anzahl von Vergleichen
+        </p>
+        <p>
+            <b>Worst-Case: O(n^2)</b> (Array bereits sortiert, Pivot = Maximum)<br>
+            <b>Best-Case: O(n log n)</b> (Pivot = Median, Array wird immer halbiert bis Länge 1)<br>
+            <b>Average-Case: O(n log n)</b> (Pivot wählen, sodass Array halbiert wird)
+        </p>
+
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section7">
+        <h1>Merge Sort</h1>
+
+        <p>
+            Der <b>Merge Sort</b> ist ein Algorithmus der ein unsortiertes Array durch die Mitte bis zu ein-elementigen Teil-Arrays eingeteilt.
+            Die jeweiligen Teil-Arrays werden dann wieder zurück sortiert.
+        </p>
+
+        <white-space></white-space>
+
+        <img class="center" src="img\MergeSort1.png">
+
+        <trenn-strich></trenn-strich>
+
+        <img class="center" src="img\MergeSort2.png">
+
+        <trenn-strich></trenn-strich>
+
+        <img class="center" src="img\MergeSort3.png">
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Analog</h2>
+        <p>
+            Splitten<br>
+            [ 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, 4358 ]<br>
+            [ 6719, 8130, 3157, 9784 ] [ 7634, 1675, 5562, 2088, 4358 ]<br>
+            [ 6719, 8130 ] [ 3157, 9784 ] [ 7634, 1675 ] [ 5562, 2088, 4358 ]<br>
+            [ 6719 ] [ 8130 ] [ 3157 ] [ 9784 ] [ 7634 ] [ 1675 ] [ 5562 ] [ 2088, 4358 ]<br>
+            <br>
+            Zusammmenfügen<br>
+            [ 6719, 8130 ] [ 3157, 9784 ] [ 1675, 7634 ] [ 2088, 4358, 5562 ]<br>
+            [ 3157, 6719, 8130, 9784 ] [ 1675, 2088, 4358, 5562, 7634 ]<br>
+            [ 1675, 2088, 3157, 4358, 5562, 6719, 7634, 8130, 9784 ]
+
+            
+        </p>
+
+        <trenn-strich></trenn-strich>
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+
+        <pre><code class="language-java">
+public class MergeSort {
+
+    // Main
+    public static void main(String[] args) {
+        int[] arr = { 6719, 8130, 3157, 9784, 7634, 1675, 5562, 2088, 4358 };
+        mergeSort(arr, 0, arr.length - 1);
+        System.out.println(arr.toString(arr));
+    }
+
+    // Merge Sort
+    public static void mergeSort(int[] arr, int l, int r) {
+        if (l < r) {
+            int m = (l + r) / 2;
+            mergeSort(arr, l, m);
+            mergeSort(arr, m + 1, r);
+            merge(arr, l, m, r);
+        }
+    }
+
+    // Merge
+    public static void merge(int[] arr, int l, int m, int r) {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+
+        int i = 0, j = 0;
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+         }
+
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+         while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+     }
+}
+        </code></pre>
+
+        <white-space></white-space>
+
+        <h3>Console output</h3>
+
+        <pre><code class="language-java">
+[1675, 2088, 3157, 4358, 5562, 6719, 7634, 8130, 9784]
+        </code></pre>
+
+        <white-space></white-space>
+        <h2>Kosten</h2>
+        <p>
+            Maß: Laufzeit
+        </p>
+        <p>
+            <b>Worst-Case: O(n log n)</b><br>
+            <b>Best-Case: O(n log n)</b><br>
+            <b>Average-Case: O(n log n)</b>
+        </p>
+        <p>
+            Worst-Case = Best-Case = Average-Case
+        </p>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section8">
+        <h1>Klassen und Objekte</h1>
+
+        <h2>Objekte</h2>
+        <p>
+            Objekte haben einen aktuellen <b>Zustand</b> sowie festgelegte <b>Fähigkeiten.</b><br>
+            Sie können mit anderen Objekten interagieren und durch ausführen von Fähigkeiten den Zustand mit der Zeit verändern.
+        </p>
+
+        <h2>Klassen</h2>
+        <p>
+            Klassen sind <b>Vorlagen</b> für Objekte. Sie definieren die <b>Eigenschaften</b> und <b>Fähigkeiten</b> von Objekten.
+        </p>
+
+        <white-space></white-space>
+
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+        <pre><code class="language-java">
+public class Dice { // Klasse
+
+    // Attribute
+    private int dots = 1;
+
+    // getter
+    public int getDots() {
+        return dots;
+    }
+
+    // setter
+    public void setDots(int dots) {
+        this.dots = dots;
+    }
+
+    // Methoden (Fähigkeiten)
+    public void roll() {
+        dots = (int) (Math.random() * 6) + 1;
+    }
+}
+        </code></pre>
+
+        <h3>Objekt erstellen</h3>
+        <pre><code class="language-java">
+public class Game {
+    
+    public static void main(String[] args) {
+        Dice dice1 = new Dice();    // Objekt erstellen
+        Dice dice2 = new Dice();
+
+        dice1.roll();   // Methode aufrufen
+        dice2.roll();
+
+        System.out.println("Dice 1: " + dice1.getDots());   // Print out
+        System.out.println("Dice 2: " + dice2.getDots());
+    }
+}
+        </code></pre>
+        </details>
+        <trenn-strich></trenn-strich>
+        <h2>Konstruktoren, Getter- & Setter-Methoden</h2>
+        <white-space></white-space>
+        <details>
+            <summary><h3>Konstruktoren</h3></summary>
+            <pre><code class="language-java">
+public class Dice {
+
+    private int dots;
+
+    // Konstruktor (No-Argument) -> random Augenzahl
+    public Dice() {
+        roll();
+    }
+
+    // Konstruktor (Argument) -> Bestimme Augenzahl auf bestimmten Wert
+    public Dice(int value) {
+        setDots(value);
+    }
+}
+            </code></pre>
+        </details>
+        <white-space></white-space>
+        <details>
+            <summary><h3>Getter- & Setter-Methoden</h3></summary>
+            <pre><code class="language-java">
+// getter
+public int getDots() {
+    return dots;
+}
+
+// setter
+public void setDots(int dots) {
+    this.dots = dots;
+}
+            </code></pre>
+        </details>
+        <white-space></white-space>
+        </div>
+
+    <div class="container" id="section9">
+        <h1>JUnit Test</h1>
+
+        <p>
+            Um unseren Code auf Funktionalität zu testen, können wir <b>JUnit</b> verwenden.
+        </p>
+        <p>
+            Mögliche Assert-Methoden in JUnit 5:
+        </p>
+        <p>
+            <b>assertEquals()</b> - Zwei Werte sind gleich<br>
+            <b>assertNotEquals()</b> - Zwei Werte sind ungleich<br>
+            <b>assertTrue()</b> - Ein Wert ist true<br>
+            <b>assertFalse()</b> - Ein Wert ist false<br>
+            <b>assertNull()</b> - Ein Wert ist null<br>
+            <b>assertNotNull()</b> - Ein Wert ist nicht null<br>
+            <b>assertSame()</b> - Zwei Werte sind identisch<br>
+            <b>assertNotSame()</b> - Zwei Werte sind nicht identisch
+        </p>
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+
+        <pre><code class="language-java">
+public class Money {
+
+    private int amount;
+    private String currency;
+
+    // Constructor
+    public Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    // Getter
+    public int getAmount() {
+        return amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+}
+        </code></pre>
+
+        <h3>Test-Klasse</h3>
+
+        <pre><code class="language-java">
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class MoneyTest {
+    @Test
+    public void testMoneyEUR() {
+        Money m12EUR = new Money(12, "EUR");
+        assertNotNull(m12EUR);
+        assertEquals(12, m12EUR.getAmount());
+        assertEquals("EUR", m12EUR.getCurrency());
+    }
+}
+        </code></pre>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section10">
+        <h1>Linked Lists</h1>
+        <p>
+            <b>Verkettete Listen (Linked Lists)</b> sind eine Datenstruktur die aus Knoten besteht. Jeder Knoten hat einen Wert und einen Verweis auf den nächsten Knoten.<br>
+            Elemente können darin hinzugefügt, gelöscht und verändert/ersetzt werden.
+        </p>
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Linked String List</h2>
+        <p>
+            Die <b>Linked String List</b> ist eine verkettete Liste die Strings speichert.<br>
+            Vom <b>start</b> aus beginnen wir bei <b>Element 1</b>.<br>
+            Element 1 zeigt über <b>next</b> auf <b>Element 2</b>.<br>
+            Jedem Element ist ein Wert <b>value</b> untergeordnet.
+        </p>
+
+        <white-space></white-space>
+        <img class="center" src="img\LinkedStringList1.png">
+        <white-space></white-space>
+
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+
+        <pre><code class="language-java">
+public class LinkedStringList {
+
+    LinkedStringList list = new LinkedStringList();
+
+    // Elemente hinzufügen
+    list.add("A");          // [A]
+    list.add("B");          // [A, B]
+    list.add("D");          // [A, B, D]
+    list.insert("C", 2)     // [A, B, C, D]
+
+    // Elemente ersetzen
+    list.set("E", 2);       // [A, B, E, D]
+
+    // Elemente löschen
+    list.remove(2);         // [A, B, D]
+
+    // Ausgabe (Print out)
+    for (int i = 0; i < list.size(); i++) {
+        System.out.println(list.get(i));
+    }
+    // A, B, D
+}
+        </code></pre>
+        </details>
+        <trenn-strich></trenn-strich>
+
+        <h2>Einfügen von Elementen (einer vorhandenen Liste)</h2>
+        <p>
+            Wir fügen Elemente mithilfe des <b>current</b> ein um die gewollte Position zu bestimmen.
+            Die Verbindung von Element 2 <b>next</b> zu Element 3 wird unterbrochen.
+        </p>
+        <img class="center" src="img\LinkedStringList2.png">
+
+        <trenn-strich></trenn-strich>
+        <p>
+            Des Weiteren verbinden wir zuerst Element 5 mit Element 3, um zu verhindern,<br>
+            dass wir das <b>value</b> von Element 3 verlieren.
+        </p>
+
+        <p>
+            Erst <b>danach</b> setzen wir <b>next</b> Element 2 auf Element 5.
+        </p>
+        <img class="center" src="img\LinkedStringList3.png">
+
+        <white-space></white-space>
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public String get(int index) {
+    if (start == null) {    // Falls Liste leer ist
+        return null;
+    }
+
+    LinkedStringListElement current = start;
+    int pos = 0;    // Position
+    while (pos < index) {
+        if (current.getNext() == null) {
+            // Liste hat nicht genug Elemente
+            return null;
+        }
+        current = current.getNext();
+        pos++;
+    }
+    return current.getValue();
+}
+            </code></pre>    
+        </details>
+        <white-space></white-space>
+        
+        <trenn-strich></trenn-strich>
+
+        <h2>Linked Integer List</h2>
+        <p>
+            Die <b>Linked Integer List</b> ähnelt der Linked String List. Jedoch verwenden wir hier <b>Integer (nicht int!)</b> anstatt von String.
+        </p>
+
+        <white-space></white-space>
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <white-space></white-space>
+            
+            <h3>Liste anlegen</h3>
+            <pre><code class="language-java">
+public class LinkedIntegerList {
+
+    // Werte hinzufügen
+    list.add(5);      // [5]
+    list.add(3);      // [5, 3]
+    list.add(4);      // [5, 3, 4]
+    list.add(1);      // [5, 3, 4, 1]
+    list.add(2);      // [5, 3, 4, 1, 2]
+    list.add(-4);     // [5, 3, 4, 1, 2, -4]
+    list.add(-3);     // [5, 3, 4, 1, 2, -4, -3]
+    list.add(0);      // [5, 3, 4, 1, 2, -4, -3, 0]
+
+}
+            </code></pre>
+
+            <h3>Element</h3>
+            <pre><code class="language-java">
+public class LinkedIntegerListElement {
+
+    private LinkedIntListElement next;
+    private Integer value;
+
+    // getter & setter
+    public LinkedIntListElement getNext() {
+        return next;
+    }
+
+    public void setNext(LinkedIntListElement next) {
+        this.next = next;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+}
+            </code></pre>
+
+            <h3>Einfügen</h3>
+            <pre><code class="language-java">
+public void add(int value) {
+    LinkedIntListElement elem = new LinkedIntListElement();
+    elem.setValue(value);
+
+    // Falls Liste leer oder neuer Wert kleiner als Start:
+    if (start == null || start.getValue() > value) {
+        elem.setNext(start);
+        start = elem;
+        return;
+    }
+
+    // Einfügen an passender Stelle (nach kleinerem Wert & vor größerem Wert):
+    LinkedIntListElement current = start;
+    while (current.getNext() != null && current.getNext().getValue() < value) {
+        current = current.getNext();
+    }
+
+    // Einfügen selbst
+    elem.setNext(current.getNext());
+    current.setNext(elem);
+}
+            </code></pre>
+
+            <h3>Ersetzen / Löschen</h3>
+            <pre><code class="language-java">
+// Methoden anlegen
+private void setValue(String number, int i) {
+
+}
+
+private void remove(int i) {
+
+}
+
+
+// Ersetzen eines Elements
+list.setValue("8", 3) // (number, index) -> [5, 3, 8, 1, 2, -4, -3, 0]
+
+// Löschen eines Elements
+list.remove(2) // (index) -> [5, 8, 1, 2, -4, -3, 0]
+            </code></pre>
+
+            <h3>Ausgabe</h3>
+            <pre><code class="language-java">
+for (int i = 0; i < list.size(); i++) {
+    System.out.print(list.get(i));
+}
+// 5, 8, 1, 2, -4, -3, 0
+            </code></pre>
+        </details>
+        <trenn-strich></trenn-strich>
+
+        <h2>Array List</h2>
+        <p>
+            Bei der <b>Array List</b> handelt es sich um eine Liste die auf einem Array basiert.<br>
+            <b>Ansatz:</b> Verdopple die Größe des Arrays, wenn es voll ist.
+        </p>
+
+        <white-space></white-space>
+        <img class="center" src="img\ArrayList1.png">
+        <white-space></white-space>
+        <details>
+            <summary><h3>Implementierung: Array String List</h3></summary>
+            <pre><code class="language-java">
+public class ArrayStringList {
+    private void ensureCapacity() {
+        if (size == values.length) {
+
+            String[] tmp = new String[values.length * 2];
+
+            for (int i = 0; i < values.length; i++) {
+            tmp[i] = values[i];
+            }
+
+            values = tmp;
+        }
+    }
+
+    public void add(String value) {
+
+        ensureCapacity();
+        values[size] = value;
+        size++;
+    }
+}
+            </code></pre>
+        </details>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section11">
+        <h1>Bäume</h1>
+        <p>
+            Bäume sind eine Datenstruktur die aus Knoten besteht. Jeder Knoten hat einen Wert und kann auf andere Knoten verweisen.
+        </p>
+        
+        <white-space></white-space>
+        
+        <img class="center" src="img\Bäume1.png">
+        
+        <white-space></white-space>
+        
+        <h2>Baumtypen</h2>
+        
+        <white-space></white-space>
+        
+        <img class="center" src="img\Bäume2.png">
+        
+        <white-space></white-space>
+        
+        <p>
+            <b>Vollständig (full):</b> Alle Ebenen des Baumes sind vollständig gefüllt, bis auf eventuell die letzte.<br>
+            <b>Lückenlos (complete):</b> Keine Lücken zwischen den Knoten<br>
+            <b>Perfekt (perfect):</b> Vollständiger Baum, jedoch sind alle Ebenen vollständig gefüllt, aka. jeder Knoten hat genau 2 Kinder & alle Blätter sind auf der gleichen Ebene
+        </p>
+        
+        <trenn-strich></trenn-strich>
+        
+        <h2>Binärbäume</h2>
+        
+        <p>
+            <b>Binärbaume</b> sind Bäume die maximal 2 Kinder (Knoten) zur Wurzel haben.
+        </p>
+        
+        <white-space></white-space>
+        
+        <img class="center" src="img\Bäume3.png">
+        
+        <white-space></white-space>
+        
+        <details>
+        <summary><h3>Implementierung</h3></summary>
+        
+        <h3>Node (Knoten)</h3>
+        
+        <pre><code class="language-java">
+public class Node {
+
+    private String value;
+    private Node left;
+    private Node right;
+
+    // Constructor
+    public Node(String value) {
+        this.value = value;
+        left = null;
+        right = null;
+    }
+}
+        </code></pre>
+
+        <h3>Bintree (Binärbaum)</h3>
+
+        <pre><code class="language-java">
+public class BinTree {
+
+    private Node root;
+
+    public Bintree() {}
+
+    // Constructor
+    public BinTree(String value) {
+        this.root = new Node(value);
+    }
+}
+        </code></pre>
+        </details>
+        
+        <trenn-strich></trenn-strich>
+
+        <h2>Traversieren</h2>
+        <p>
+            Beim Traversieren wird ein Baum über alle Knoten durchlaufen. Dabei gibt es verschiedene Reihenfolgen die wie folgt aussehen:
+        </p>
+        
+        <white-space></white-space>
+        
+        <h2>Inorder-Traversierung</h2>
+        
+        <p>
+            <b>inorder:</b><br>
+            1. links<br>
+            2. Wurzel<br>
+            3. rechts
+        </p>
+
+        <white-space></white-space>
+        
+        <img class="center" src="img\Inorder.png">
+        
+        <white-space></white-space>
+            <details>
+            <summary><h3>Implementierung</h3></summary>
+        <pre><code class="language-java">
+public class Inorder {
+    public void inorder() {
+        if (!isEmpty()) {
+            getLeft().inorder();    // links
+            System.out.print(getValue());   // Wurzel
+            getRight().inorder();   // rechts
+        }
+    }
+}
+            </code></pre>
+        </details>
+
+        <trenn-strich></trenn-strich>
+            
+        <h2>Preorder-Traversierung</h2>
+            
+        <p>
+            <b>preorder:</b><br>
+            1. Wurzel<br>
+            2. links<br>
+            3. rechts
+        </p>
+            
+        <white-space></white-space>
+            
+        <img class="center" src="img\Preorder.png">
+            
+        <white-space></white-space>
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public class Preorder {
+    public void preorder() {
+        if (!isEmpty()) {
+        System.out.print(getValue());   // Wurzel
+        getLeft().preorder();   // links
+        getRight().preorder();  // rechts
+        }
+    }
+}
+            </code></pre>
+        </details>
+
+        <trenn-strich></trenn-strich>
+            
+        <h2>Postorder-Traversierung</h2>
+            
+        <p>
+            <b>postorder:</b><br>
+            1. links<br>
+            2. rechts<br>
+            3. Wurzel
+        </p>
+            
+        <white-space></white-space>
+            
+        <img class="center" src="img\Postorder.png">
+            
+        <white-space></white-space>
+        
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public class Postorder {
+    public void postorder() {
+        if (!isEmpty()) {
+        getLeft().postorder();  // links
+        getRight().postorder(); // rechts
+        System.out.print(getValue());   // Wurzel
+        }
+    }
+}
+            </code></pre>
+        </details>
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Traversierung: Merk-Ansatz</h2>
+
+        <img class="center" src="img\Traversierung1.png">
+         <p>
+            Zeichne eine Umrandung um den Baum.<br>
+            Zeichne jeweils eine Linie von der Node zur Umrandung.<br>
+        </p>
+        <p>
+            Links (rot) = Pre-order,<br>
+            Unten (gelb) = In-order,<br>
+            Rechts (blau) = Post-order,<br>
+        </p>
+        <p>
+            Ablesen:
+        </p>
+        <p>
+            <span class="red">Pre-order: /, +, 3, *, 4, 5, -, 8, 2</span><br>
+            <span class="yellow">In-order: 3, +, 4, *, 5, /, 8, -, 2</span><br> 
+            <span class="blue">Post-order: 3, 4, 5, *, +, 8, 2, -, /</span> 
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Suche</h2>
+        <p>
+            Wir können in einem Binärbaum nach einem bestimmten Wert suchen. Dazu gibt es zwei Methoden: <b>Tiefensuche (DFS)</b> und <b>Breitensuche (BFS)</b>.
+        </p>
+
+        <white-space></white-space>
+
+        <h2>Tiefensuche</h2>
+            
+        <img class="center" src="img\Tiefensuche.png">
+            
+        <white-space></white-space>
+        
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public BinTree dfs(String data) {
+    if (isEmpty()) {
+        return null;
+    }
+
+    if (getValue().equals(data)) {
+        return this;
+    }
+
+    BinTree result = null;
+        if (getLeft() != null) {
+            result = getLeft().dfs(data);
+
+            if (result != null) {
+                return result;
+            }
+        }
+    
+        if (getRight() != null) {
+            result = getRight().dfs(data);
+        }
+    return result;
+}
+            </code></pre>
+        </details>
+
+        <trenn-strich></trenn-strich>
+            
+        <h2>Breitensuche</h2>
+            
+        <white-space></white-space>
+            
+        <img class="center" src="img\Breitensuche.png">
+            
+        <white-space></white-space>
+        
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public BinTree bfs(String data) {
+    BinTreeQueue queue = new BinTreeQueue();
+    
+    if (!isEmpty()) {
+        queue.enqueue(this);
+    }
+
+    while (!queue.isEmpty()) {
+        BinTree tree = queue.dequeue();
+        
+        if (tree.getValue().equals(data)) {
+            return tree;
+        }
+        
+        if (!tree.getLeft().isEmpty()) {
+            queue.enqueue(tree.getLeft());
+        }
+    
+        if (!tree.getRight().isEmpty()) {
+            queue.enqueue(tree.getRight());
+        }
+    }
+    return null;
+}
+            </code></pre>
+        </details>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section12">
+        <h1>AVL-Bäume</h1>
+        <h2>Suchbäume</h2>
+        <p>
+            <b>Suchbäume</b> sind <b>Bäume</b> mit einer kleinen Addition an Eigenschaften:
+        </p>
+        <p>
+            1. Die Werte des <b>linken Teilbaums (Subtree)</b> sind <b>kleiner</b> als der Wert der Wurzel X.<br>
+            2. Die Werte des <b>rechten Teilbaums (Subtree)</b> sind <b>größer</b> als der Wert der Wurzel X.
+        </p>
+
+        <white-space></white-space>
+
+        <img class="center" src="img\Suchbaum.png">
+
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <pre><code class="language-java">
+public class SearchTree {
+
+    private Node root;
+    public SearchTree() { }
+
+    public SearchTree(KeyValue content) {
+        root = new Node(content);
+    }
+
+    public SearchTree(SearchTree left, KeyValue content, SearchTree right) {
+
+        root = new Node(content);
+
+        if (left != null) {
+        root.setLeft(left.root);
+        }
+
+        if (right != null) {
+        root.setRight(right.root);
+        }
+    }
+}
+            </code></pre>
+        </details>
+
+        <white-space></white-space>
+
+        <details>
+            <summary><h3>Suche im Suchbaum</h3></summary>
+            <pre><code class="language-java">
+public KeyValue search(int key) {
+    if (!isEmpty()) {
+        if (key == getValue().getKey()) {
+            return getValue();
+        }
+
+        else if (key < getValue().getKey() && getLeft() != null) {
+            // search left sub-tree
+            return getLeft().search(key);
+        }
+
+        else if (key > getValue().getKey() && getRight() != null) {
+            // search right sub-tree
+            return getRight().search(key);
+        }
+    }
+    return null; // key not found
+}
+            </code></pre>
+        </details>
+
+        <trenn-strich></trenn-strich>
+
+        <h2>AVL-Bäume</h2>
+        <p>
+            <b>AVL-Bäume</b> sind <b>Suchbäume</b> die aber eine Rotationsoperation besitzen um den Baum
+            balanced zu behalten.
+        </p>
+        <p>
+            Die <b>Höhe</b> jedes Knoten n darf sich nur um <b>höchstens 1 unterscheiden.</b>
+        </p>
+            
+        <img class="center" src="img\AVL-Bäume1.png">
+
+        <trenn-strich></trenn-strich>
+
+        <img class="center" src="img\AVL-Bäume2.png">
+
+    </div>
+
+    <div class="container" id="section13">
+            
+        <h1>Hashing</h1>
+            
+        <p>
+            Beim <b>Hashing</b> wird <b>"gefunden anstatt gesucht".</b><br>
+            Es werden basierend auf gegebenen Schlüsseln die Position der dazugehörigen Daten gefunden.
+        </p>
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Hash-Tabelle</h2>
+        <p>
+            <b>K = Menge der Schlüssel</b><br>
+            <b>h = Hash-Funktion</b> mit h: K -> {0, 1, ..., m-1}<br>
+            <b>h(k) = Hash-Adresse</b>
+
+        </p>
+
+        <img class="center" src="img\HashTabelle1.png">
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Überlauflisten</h2>
+        <p>
+            Die Position der Schlüssel innerhalb der Hash-Tabelle bestimmen wir über folgende Formel:
+        </p>
+
+        <p class="p-center">
+            h(k) = k (mod m)
+
+        </p>
+
+        <p class="p-center">
+            m = Anzahl der Schlüssel<br>
+            k = Schlüssel
+        </p>
+
+        <p>
+            <b>Beispiel:</b><br>
+            Gegeben sei eine Hash-Tabelle<br>
+            der Größe <b>m = 7</b>,<br>
+            Schlüsselmenge K = {0, 1, ..., 499}<br>
+            und die Hash-Funktion h(k) = k (mod m) -> h(k) = k (mod 7)<br>
+        </p>
+        <p>
+            Folgende Schlüssel sind gegeben:<br>
+            <b>12, 53, 5, 15, 2, 19, 43</b>
+        </p>
+        <p>
+            Nach Einfügen ergibt sich folgendes Bild:
+        </p>
+        <white-space></white-space>
+
+        <img class="center" src="img\Überlauflisten1.png">
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Open Hashing</h2>
+
+        <white-space></white-space>
+
+        <h2>Lineares Sondieren</h2>
+        <p>
+            Wir berechnen die Sondierungsreihenfolge wie folgt:
+        </p>
+        <p class="p-center">
+            (h(k) - s(j, k)) mod m
+        </p>
+        <p class="p-center">
+            k = Schlüssel<br>
+            j = Einfügeversuchsnummer für k<br>
+        </p>
+        <p>
+            <b>Beispiel:</b><br>
+            Hash-Funktion: h(k) = k (mod m)<br>
+            Sondierungsreihenfolge: h(k) - s(j, k)<br>
+            Schlüssel: <b>18, 12, 16, 22, 10, <span class="red">25, 5, 31, 11</span></b><br>
+        </p>
+
+        <img class="center" src="img\OpenHashing1.png">
+        <trenn-strich></trenn-strich>
+        <h2>Quadratisches Sondieren</h2>
+        <p>
+            Wir berechnen die Sondierungsreihenfolge wie folgt:
+        </p>
+
+        <white-space></white-space>
+        <img class="center" src="img\OpenHashing2.png">
+        
+        <trenn-strich></trenn-strich>
+        <h3>Beispiel</h3>
+        <p>
+            Folgende Schlüssel sind gegeben:<br>
+            <b>12, 5, 53, 2, 15, 19</b><br>
+            m = 7
+        </p>
+        <p class="p-center">
+            h(k) = k (mod m)<br>
+            s(j, k) = ( ˥ j/2 ˥ )^2 * (-1)^i<br>
+            <br>
+            ˥˥ -> Aufrunden<br>
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\OpenHashing3.png">
+        <white-space></white-space>
+
+        <div class="grid-container3">
+            <div>
+                <p>
+                    Einfügen von 12:<br>
+                    Erster Versuch -> <b>j = 0</b><br>
+                    <br>
+                    (h(12) - s (0, 12)) mod 7<br>
+                    = (12 (mod 7) - 0) mod 7<br>
+                    = (5 - 0) mod 7<br>
+                    = 5
+                </p>
+            </div>
+            <div>
+                <p>
+                    Einfügen von 5:<br>
+                    Erster Versuch -> <b>j = 0</b><br>
+                    <br>
+                    (h(5) - s (0, 5)) mod 7<br>
+                    = (5 (mod 7) - 0) mod 7<br>
+                    = (5 - 0) mod 7<br>
+                    = 5<br>
+                    <span class="red">Kollision!</span><br>
+                    <br>
+                    Zweiter Versuch -> <b>j = 1</b><br>
+                    <br>
+                    (h(5) - s (1, 5)) mod 7<br>
+                    = (5 (mod 7) - -1) mod 7<br>
+                    = (5 + 1) mod 7<br>
+                    = 6
+                </p>
+            </div>
+            <div>
+                <p>
+                    Einfügen von 53:<br>
+                    Erster Versuch -> <b>j = 0</b><br>
+                    <br>
+                    (h(53) - s (0, 53)) mod 7<br>
+                    = (53 (mod 7) - 0) mod 7<br>
+                    = (4 - 0) mod 7<br>
+                    = 4
+                </p>
+            </div>
+        </div>
+        <white-space></white-space>
+        <div class="grid-container3">
+            <div>
+                <p>
+                    Einfügen von 2:<br>
+                    Erster Versuch -> <b>j = 0</b><br>
+                    <br>
+                    (h(2) - s (0, 2)) mod 7<br>
+                    = (2 (mod 7) - 0) mod 7<br>
+                    = (2 - 0) mod 7<br>
+                    = 2
+                </p>
+            </div>
+            <div>
+                <p>
+                    Einfügen von 15:<br>
+                    Erster Versuch -> <b>j = 0</b><br>
+                    <br>
+                    (h(15) - s (0, 15)) mod 7<br>
+                    = (15 (mod 7) - 0) mod 7<br>
+                    = (1 - 0) mod 7<br>
+                    = 1
+                </p>
+            </div>
+            <div>
+                <p>
+                    Einfügen von 19:<br>
+                    Erster Versuch -> <b>j = 0</b><br>
+                    <br>
+                    (h(19) - s (0, 19)) mod 7<br>
+                    = (19 (mod 7) - 0) mod 7<br>
+                    = (5 - 0) mod 7<br>
+                    = 5<br>
+                    <span class="red">Kollision!</span><br>
+                    <b>(...)</b><br>
+                    Sechster Versuch -> <b>j = 5</b><br>
+                    (h(19) - s (5, 19)) mod 7<br>
+                    = (19 (mod 7) - -9) mod 7<br>
+                    = (5 + 9) mod 7<br>
+                    = 0
+                </p>
+            </div>
+        </div>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section14">
+        <h1>Heap Sort</h1>
+        <p>
+            <b>Heap Sort</b> ist ein Sortieralgorithmus der auf der Datenstruktur <b>Heap</b> basiert.
+        </p>
+        <white-space></white-space>
+
+        <h2>Heap</h2>
+        <p>
+            Ein <b>Heap</b> ist ein <b>Binärbaum</b> der folgende Eigenschaften besitzt:
+        </p>
+        <p>
+            1. <b>Max-Heap:</b> Jeder Knoten ist größer als seine Kinder<br>
+            2. <b>Min-Heap:</b> Jeder Knoten ist kleiner als seine Kinder
+        </p>
+        <white-space></white-space>
+        <h3>Heapify</h3>
+        <white-space></white-space>
+        <img class="center" src="img\Heap1.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\Heap2.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\Heap3.png">
+        <trenn-strich></trenn-strich>
+        
+        <h2>Heap Sort</h2>
+        <white-space></white-space>
+
+        <h3>Beispiel: Max-Heap</h3>
+        <p>
+            <b>Bedingung:</b> Heap-Eigenschaft erfüllen<br>
+            Hier: <b>Max-Heap</b>, also größter Wert an der Wurzel
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\HeapSort1.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\HeapSort2.png">
+        <trenn-strich></trenn-strich>
+        
+        <img class="center" src="img\HeapSort3.png">
+        <trenn-strich></trenn-strich>
+        <details>
+            <summary><h3>Implementierung</h3></summary>
+            <white-space></white-space>
+            <h3>Heap Sort</h3>
+            <pre><code class="language-java">
+public class HeapSort {
+    public static void heapSort(Data[] data) {
+        // Stelle Heap-Order her
+        for (int i = data.length / 2 - 1; i >= 0; i--) {
+            heapify(data, data.length, i);
+        }
+        for (int i = data.length - 1; i > 0; i--) {
+            // Tausche Wurzel mit letztem Element
+            Data temp = data[0];
+            data[0] = data[i];
+            data[i] = temp;
+            // Wiederherstellen der Heap-Eigenschaft
+            heapify(data, i, 0);
+        }
+    }
+}
+            </code></pre>
+            <white-space></white-space>
+            <h3>Heapify</h3>
+            <pre><code class="language-java">
+public static void heapify(Data[] data, int n, int i) {
+    while (2 * index + 1 <= maxIndex) {    // Solange linkes Kind existiert
+        int child = 2 * index + 1;
+        if (child + 1 <= maxIndex) {    // Falls rechtes Kind existiert
+            if (data[child].compareTo(data[child + 1]) < 0) {
+                child++;    // Rechtes Kind ist größer
+            }
+        }
+        // Kind ist index für größten Key
+        // Muss das Element versickert werden?
+        if (data[index].compareTo(data[child]) < 0) {
+            // ja -> Tausche Elemente aus (index & child)
+            Data temp = data[index];
+            data[index] = data[child];
+            data[child] = temp;
+            index = child;
+        } else {
+            // nein -> Heap-Eigenschaft erfüllt
+            return;
+        }
+    }
+}
+            </code></pre>
+            <white-space></white-space>
+
+            <h2>Kosten</h2>
+            <p>
+                Initialisierung + Sortierung:<br><br>
+                C<sub>max</sub> 𝜖 O (n log n)<br>
+                M<sub>max</sub> 𝜖 O (n log n)
+            </p>
+            <p>
+                Bedenke: + Kosten für Heap-Initialisierung (Heapify)<br><br>
+                <img class="center" src="img\HeapSortKosten.png">
+            </p>
+        
+        </details>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section15">
+        <h1>Entscheidungsbäume</h1>
+        <p>
+            <b>Entscheidungsbäume</b> sind Binärbäume dessen innere Knoten <b>Paare von Indizes</b> enthalten.
+        </p>
+        <white-space></white-space>
+        <h3>Beispiel</h3>
+        <p>
+            Sei k<sub>0</sub>, k<sub>1</sub>, k<sub>2</sub> =  7, 9, 8<br>
+            <br>
+            7 < 9 -> links<br>
+            9 < 8 -> rechts<br>
+            7 < 8 -> links<br> 
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Entscheidungsbäume1.png">
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section16">
+        <h1>Graphen</h1>
+        <p>
+            <b>Graphen</b> sind eine Datenstruktur die aus <b>Knoten</b> und <b>Kanten</b> besteht.
+        </p>
+
+        <white-space></white-space>
+        <h2>Vokabeln</h2>
+        <p>
+            <b>Gerichtete Graphen:</b> Kanten haben eine Richtung<br>
+            <b>Ungerichtete Graphen:</b> Kanten haben keine Richtung
+        </p>
+        <p>
+            <b>Zyklenfrei:</b> Ein Graph ist zyklenfrei, wenn es keine Schleifen gibt.<br>
+            <b>Schlinge:</b> Kante die von einem Knoten zu sich selbst führt.
+        </p>
+        <p>
+            <b>Zusammenhängend:</b> Ein Graph ist zusammenhängend, wenn es von jedem Knoten zu jedem anderen Knoten einen Pfad gibt.
+        </p>
+        <p>
+            Der <b>Grad</b> eines Knoten ist die Anzahl der Kanten die von diesem Knoten ausgehen.
+        </p>
+
+        <trenn-strich></trenn-strich>
+        <h2>Traversierung</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+
+        <trenn-strich></trenn-strich>
+        <h2>Tripel-Algorithmus</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+
+        <trenn-strich></trenn-strich>
+        <h2>Minimale Spannbäume (MST)</h2>
+        <p>
+            <b>Minimale Spannbäume</b> sind Teilgraphen eines Graphen die alle Knoten verbinden und die Summe der Kanten minimal ist.
+        </p>
+
+        <trenn-strich></trenn-strich>
+        <h2>Algorithmus von Prim</h2>
+        <p>
+            Der <b>Algorithmus von Prim</b> ist ein Algorithmus um den minimalen Spannbaum eines Graphen zu finden.
+        </p>
+        <p>
+            - Beginne mit <span class="red">einelementigem Baum T</span>, beliebige Knoten v<br>
+            - Wähle <b>Kante e</b> mit <b>minimalem Gewicht</b><br>
+            - Kante e soll soll neuen <b>Knoten u</b> mit T verbinden<br>
+            - Füge e und u zu <span class="red">T</span> hinzu<br>
+        </p>
+        <p>
+            <b>-> Greedy Algorithmus:</b> Einmal gewählte Kante kann nicht mehr entfernt werden.
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Prim1.png">
+        <trenn-strich></trenn-strich>
+        <img class="center" src="img\Prim2.png">
+        <trenn-strich></trenn-strich>
+        
+        <h3>Aufwand</h3>
+        <p>
+            Abhängig von Datenstruktur:<br>
+            - Adjazenzliste: O (|E| log |V|)<br>
+            - Adjazenzmatrix: O (|V|²)
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section17">
+        <h1>Klausurthemen</h1>
+        
+        <h2>Historie</h2>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>WiSe 2017/18</b><br>
+                    ?
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    <br>
+                    1. Zahlen<br>
+                    2. Methoden<br>
+                    3. Stacks & Konstruktor, Getter, Setter<br>
+                    4. Counting Sort<br>
+                    5. Terminierungsfunktion<br>
+                    6. Bäume<br>
+                    7. Komplexität (O-Notation anhand Funktion)<br>
+                    8. Heap Sort<br>
+                    9. B-Bäume<br>
+                    10. Boyer-Moore
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>WiSe 2018/19</b><br>
+                    <br>
+                    1. Bäume / Graphen<br>
+                    2. Multiplikation<br>
+                    3. Klassen & Objekte<br>
+                    4. Array sorting (Gnome Sort)<br>
+                    5. Stacks / Queues<br>
+                    6. Hashing<br>
+                    7. Quick Sort (analog)
+                </p>
+            </div>
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    <br>
+                    1. Linked Lists<br>
+                    2. Klassen & Objekte<br>
+                    3. Grammatiken (EBNF)<br>
+                    4. O-Notation<br>
+                    5. Array sorting (Bogo Sort)<br>
+                    6. Berechnungen<br>
+                    7. AVL-Bäume<br>
+                    8. Heap Sort<br>
+                    9. Graphen
+                </p>
+            </div>
+
+            
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                <b>WiSe 2019/20</b><br>
+                    <br>
+                    1. Sequenzausgabe<br>
+                    2. Bäume<br>
+                    3. Arrays<br>
+                    4. Punkte im Raum(getter/setter)<br>
+                    5. Hashing (Überlauflisten)<br>
+                    6. Queue<br>
+                    7. Quick- & Mergesort (analog + Kosten)
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <b>Wiederholungsklausur></b><br>
+                    ?
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>WiSe 2020/21</b><br>
+                    ?
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    ?
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>WiSe 2021/22</b>
+                    <br>
+                    1. EBNF-Grammatiken<br>
+                    2. Arrays<br>
+                    3. Objektorientierung<br>
+                    4. AVL-Bäume<br>
+                    5. Hashing<br>
+                    6. Quick-, Merge-, Heapsort (multiple choice)<br>
+                    7. Bäume / Graphen
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b>
+                    <br>
+                    1. Automaten<br>
+                    2. Komplexität (Funktion)<br>
+                    3. Rekursion<br>
+                    4. Listen<br>
+                    5. JUnit<br>
+                    6. Objektorientierung<br>
+                    7. Primalgorithmus (min. Spannbaum)
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>WiSe 2022/23</b><br>
+                    <br>
+                    1. Arrays<br>
+                    2. Rekursion / Stacks<br>
+                    3. Automaten<br>
+                    4. Komplexität<br> 
+                     - Counting Sort (nur angeben)<br>
+                     - Anhand gegebenen Code<br>
+                     - Funktion<br>
+                    5. Boyer-Moore<br>
+                    6. Quick- & Mergesort (mult. choice)<br>
+                    7. Graphen & Objektorientierung
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    <br>
+                    1. Objektorientierung<br>
+                    2. Datentypen (mult. choice)<br>
+                    3. AVL-Bäume<br>
+                    4. Dokumentation<br>
+                    5. Heap Sort<br>
+                    6. Komplexität (Funktion)<br>
+                    7. Linked Lists<br>
+                    8. Hashing
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>WiSe 2023/24</b><br>
+                    <br>
+                    1. DEA<br>
+                    2. Komplexität (code) & Test<br>
+                    3. AVL-Bäume<br>
+                    4. Datentypen<br>
+                    5. Quick Sort (pivot left anstatt right)<br>
+                    6. Objektorientierung<br>
+                    7. Hashing<br>
+                    8. Kreuzworträtsel<br>
+                    9. Linked Lists<br>
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    <br>
+                    1. Graphen<br>
+                    2. Boyer-Moore<br>
+                    3. Komplexität (Funktion)<br>
+                    4. Objektorientierung<br>
+                    5. Heap Sort<br>
+                    6. Kreuzworträtsel<br>
+                    7. DEA & EBNF-Grammatiken<br>
+                    8. Arrays
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <b>WiSe 2024/25</b><br>
+                <br>
+                1. DEA<br>
+                2. Arrays<br>
+                3. Komplexitätsanalyse<br>
+                4. Objektorientierung<br>
+                5. Binärbäume<br>
+                6. Hashing (Implementierung)<br>
+                7. Boyer-Moore<br>
+                8. Heap-Sort (Max-Heap)
+            </div>
+
+            <div>
+                <b>Wiederholungsklausur</b><br>
+                ?
+            </div>
+        </div>
+
+        <white-space></white-space>
+    </div>
+</body>
+</html>

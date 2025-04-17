@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\stylesheet.css" rel="stylesheet"/>
+    
+    <link href="img\Logo.png" rel="icon" type="image/x-icon"/>
+    <title>Informatik Studium</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lineare Algebra</h1>
+        <nav class="navigation">
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section1">01 Abbildungen</a></li>
+                    <li><a href="#section2">02 Gruppen, Ringe, Körper</a></li>
+                    <li><a href="#section3">03 LGS & Matrizen</a></li>
+                    <li><a href="#section4">04 Vektorräume</a></li>
+                    <li><a href="#section5">05 Rang</a></li>
+                </ul>
+            </div>
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section6">06 Determinanten</a></li>
+                    <li><a href="#section7">07 Eigenwerte von Matrizen</a></li>
+                    <li><a href="#section8">08 Lineare Abbildungen</a></li>
+                    <li><a href="#section9">09 Basiswechsel</a></li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+
+        <div class="container" id="section1">
+            <h1>Abbildungen</h1>
+            <p>
+                Abbildungen  von Menge A und Menge B werden wie folgt dargestellt:
+            </p>
+            <img class="center" src="img\Abbildung1.png">
+
+            <white-space></white-space>
+            <p>
+                Abbildungen haben dabei folgende <b>Eigenschaften:</b>
+            </p>
+            <img class="center" src="img\Abbildung2.png">
+            <h2>Injektiv</h2>
+            <p>
+                Eine Abbildung ist injektiv, wenn jedes Element aus A auf ein Element aus B abgebildet wird.<br>
+                <b>Zu Zeigen</b> ist dass für alle a<sub>1</sub> und a<sub>2</sub> aus A gilt: <b>f(a<sub>1</sub>) ≠ f(a<sub>2</sub>) => a<sub>1</sub> ≠ a<sub>2</sub></b> 
+            </p>
+
+            <h2>Surjektiv</h2>
+            <p>
+                Eine Abbildung ist surjektiv, wenn jedes Element aus B mindestens einmal abgebildet wird.<br>
+                <b>Zu Zeigen</b> ist dass für jedes b aus B ein a aus A existiert, sodass <b>f(a) = b</b>
+            </p>
+        </div>
+
+        
+        <div class="container" id="section2">
+            <h1>Gruppen, Ringe, Körper</h1>
+            <h2>Körper</h2>
+            <p>
+                Ein <b>Körper</b> besteht aus einer Menge K von Elementen zusammen mit zwei Verknüpfungen + und *
+                die je zwei Elementen x, y ∈ K wieder ein Element x + y bzw. x * y von K zuordnen.
+            </p>
+
+            <p>
+                Damit eine solche Struktur Körper genannt wird, müssen die folgenden drei Gruppen von
+                <b>Gesetzen (Axiome)</b> für alle x, y, z ∈ K erfüllt sein:
+            </p>
+
+            <trenn-strich></trenn-strich>
+            <h2>Axiome</h2>
+            <p>
+                <b>Assoziativität</b><br>
+                (Klammern sind beliebig)
+            </p>
+            <p class="p-center">
+                (x + y) + z =  x + (y + z)
+            </p>
+            <p>
+                <b>Nullelement (Addition only)</b><br>
+                Es gibt ein Element 0 ∈ K, sodass <b>x + 0 = x</b> für alle x ∈ K
+            </p>
+            <p>
+                <b>Einselement (Multiplikation only)</b><br>
+                Es gibt ein Element 1 ∈ K, sodass <b>x * 1 = x</b> für alle x ∈ K
+            </p>
+            <p>
+                <b>Inverse</b><br>
+                Zu jedem x ∈ K gibt es ein Element -x ∈ K, sodass <b>x + (-x) = 0</b>
+            </p>
+            <p>
+                <b>Kommutativität</b><br>
+            </p>
+            <p class="p-center">
+                x + y = y + x
+            </p>
+            <p>
+                <b>Distributivgesetz</b>
+            </p>
+            <p class="p-center">
+                x * (y + z) = x * y + x * z
+        </div>
+
+        
+
+        <div class="container" id="section3">
+            <h1>LGS & Matrizen</h1>
+            <h2>Gauß</h2>
+            <p>
+                Lorem Ipsum.
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Invertieren</h2>
+            <p>
+                Lorem Ipsum.
+            </p>
+            <white-space></white-space>
+        </div>
+
+        <div class="container" id="section4">
+            <h1>Vektorräume</h1>
+            <p>
+                Einem <b>Vektorraum</b> liegt immer ein <b>Körper K</b> vor.<br>
+                Ein <b>K-Vektorraum</b> besteht aus einer Menge V von Elementen, auch Vektoren genannt, die den folgenden Gesetzen genügt:
+            </p>
+            <h2>Verknüpfungen von Vektoren</h2>
+            <p>
+                Es gibt eine Verknüpfung + auf V, die je zwei Vektoren v
+                und w einen Vektor v + w zuordnet, so dass für alle u, v, w ∈ V die folgenden <b>Axiome</b>
+                erfüllt sind:<br>
+                <br>
+                <b>Vektoren</b> sind Element von V<br>
+                <b>Skalare</b> sind Element von K
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Axiome</h2>
+            <p>
+                <b>Assoziativität</b><br>
+                (Klammern sind beliebig)
+            </p>
+            <p class="p-center">
+                (u + v) + w = u + (v + w)
+            </p>
+            <p>
+                <b>Nullelement</b><br>
+                Es gibt ein Element 0 ∈ V, sodass <b>v + 0 = v</b> für alle v ∈ V
+            </p>
+            <p>
+                <b>Negative Vektoren</b><br>
+                Zu jedem v ∈ V gibt es ein Element -v ∈ V, sodass <b>v + (-v) = 0</b>
+            </p>
+            <p>
+                <b>Kommutativität</b><br>
+            </p>
+            <p class="p-center">
+                u + v = v + u
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Morphismen</h2>
+            <white-space></white-space>
+            <h3>Homomorphismus</h3>
+            <p>
+                Beim Homomorphismus handelt es sich um eine <b>lineare Abbildung</b> zwischen zwei Vektorräumen.<br>
+                f: V -> W.<br>
+                <br>
+                Dabei gilt:<br>
+                <b>Homogenität:</b> f(a * v) = a * f(v)<br>
+                <b>Additivität:</b> f(v + w) = f(v) + f(w)
+            </p>
+            <white-space></white-space>
+            <h3>Monomorphismus</h3>
+            <p>
+                Ein Monomorphismus ist ein <b>injektiver Homomorphismus.</b><br>
+                <br>
+                Heißt:<br>
+                Es handelt sich um eine <b>lineare Abbildung</b> zwischen zwei Vektorräumen, die <b>injektiv</b> ist.<br>
+                (jedes Element aus V wird auf ein Element aus W abgebildet wird.)
+            </p>
+            <white-space></white-space>
+            <h3>Epimorphismus</h3>
+            <p>
+                Ein Epimorphismus ist ein <b>surjektiver Homomorphismus.</b><br>
+                <br>
+                Heißt:<br>
+                Es handelt sich um eine <b>lineare Abbildung</b> zwischen zwei Vektorräumen, die <b>surjektiv</b> ist.<br>
+                (jedes Element aus W wird mindestens einmal abgebildet.)
+            </p>
+            <white-space></white-space>
+            <h3>Isomorphismus</h3>
+            <p>
+                Ein Isomorphismus ist ein <b>bijektiver Homomorphismus.</b><br>
+                <br>
+                Heißt:<br>
+                Es handelt sich um eine <b>lineare Abbildung</b> zwischen zwei Vektorräumen, die <b>bijektiv</b> ist.<br>
+                (jedes Element aus V wird auf ein Element aus W abgebildet wird und umgekehrt.)
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Unterverktorraum</h2>
+            <p>
+                Ein Untervektorraum U von V ist eine Teilmenge von V, die selbst ein Vektorraum ist.
+            </p>
+            <fieldset>
+            <h3>Kriterien</h3>
+            <p>
+                <b>1.</b> U ist nicht leer (U /= ∅)<br>
+                <b>2.</b> ∀v, w ∈ U und ∀λ, μ ∈ K gilt:<br>
+                &nbsp; &nbsp; &nbsp;<b>λv + μw ∈ U</b>
+            </p>
+            </fieldset>
+            <p>
+                <b>Zu Zeigen</b> ist dass U für alle u, v ∈ U und alle k ∈ K die folgenden Bedingungen erfüllt:<br>
+                1. u + v ∈ U<br>
+                2. k * u ∈ U
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Erzeugendensystem</h2>
+            <p>
+                Ein Erzeugendensystem von V ist eine Teilmenge von V, die durch Linearkombinationen<br>
+                <b>alle Vektoren von V erzeugt.</b><br>
+                <br>
+                <fieldset>
+                lR - Vektorraum(lR<sup>3</sup>, +, *)<br>
+                <span class="green">E</span> = {<span class="green">e<sub>1</sub>, e<sub>2</sub>, ..., e<sub>n</sub></span>} ⊆ lR<sup>3</sup><br>
+                ist Erzeugendensystem von lR<sup>3</sup> wenn gilt:<br>
+                <br>
+                ∀v ∈ lR<sup>3</sup>:<br>
+                ∃λ<sub>1</sub>, λ<sub>2</sub>, λ<sub>3</sub> ∈ lR:<br>
+                <b>v = λ<sub>1</sub><span class="green">e<sub>1</sub></span> + λ<sub>2</sub><span class="green">e<sub>2</sub></span> + λ<sub>3</sub><span class="green">e<sub>3</sub></span></b><br>
+                </fieldset>
+                <br>
+            </p>
+            <p>
+                <span class="blue">Beispiel:</span><br>
+                \[
+
+                \begin{bmatrix}
+                    x \\ y \\ z
+                \end{bmatrix}
+                = x
+                \begin{bmatrix}
+                    1 \\ 0 \\ 0
+                \end{bmatrix}
+                * y
+                \begin{bmatrix}
+                    0 \\
+                    1 \\
+                    0
+                \end{bmatrix}
+                * z
+                \begin{bmatrix}
+                    0 \\ 0 \\ 1
+                \end{bmatrix}
+
+                \]
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Lineare (Un)abhängigkeit</h2>
+            <p>
+                Eine Menge von Vektoren ist linear unabhängig, wenn sich <b>keiner der Vektoren als Linearkombination
+                der anderen Vektoren darstellen lässt.</b><br>
+                <br>
+                Bzw. gilt lineare Unabhängigkeit, wenn:<br>
+                <b>λ<sub>1</sub>, ..., λ<sub>n</sub> = 0</b><br>
+                <br>
+                <span class="blue">Wie überprüfe ich auf lineare (un)abhängigkeit?</span><br>
+            </p>
+            <h3>Triviale Lösung</h3>
+            <p>
+                (Setze für λ<sub>1</sub>, λ<sub>2</sub>, ..., λ<sub>n</sub> = 0 ein)<br>
+
+                \[
+
+                0
+                = 0
+                \begin{bmatrix}
+                    1 \\ 0 \\ 0
+                \end{bmatrix}
+                * 0
+                \begin{bmatrix}
+                    0 \\
+                    1 \\
+                    0
+                \end{bmatrix}
+                * 0
+                \begin{bmatrix}
+                    0 \\ 0 \\ 1
+                \end{bmatrix}
+
+                \]
+            </p>
+            <h3>Nichttriviale Lösung</h3>
+            <p>
+                (Seien λ<sub>1</sub>, λ<sub>2</sub>, ..., λ<sub>n</sub> ∈ lR, einige λ<sub>i</sub>  ≠ 0 bspw.)<br>
+                <br>
+                <b>Gauß:</b> Löse das LGS mit Gauß. Falls die <b>einzige Lösung λ = 0</b>,<br>
+                dann sind die Vektoren <b>linear unabhängig.</b>
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Spann</h2>
+            <p>
+                Gegeben sei eine Menge von Vektoren V = {v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n</sub>} in einem Vektorraum V.<br>
+                <br>
+                Der <b>Spann</b> von V ist die <b>Menge aller Vektoren</b>, die sich als <b>Linearkombination</b><br>
+                der Vektoren in V darstellen lassen.
+            </p>
+            <fieldset>
+            <p class="p-center">
+                span(v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n</sub>) = {λ<sub>1</sub>v<sub>1</sub> + λ<sub>2</sub>v<sub>2</sub> + ... + λ<sub>n</sub>v<sub>n</sub> | λ<sub>1</sub>, λ<sub>2</sub>, ..., λ<sub>n</sub> ∈ K}
+            </p>
+            </fieldset>
+            <p>
+                Das heißt, dass der Spann von V alle Vektoren enthält, die durch Skalarkombinationen dieser Vektoren erzeugt werden können.<br>
+                <br>
+                <span class="blue">Wie zeige ich ob ein Vektor in einem Spann liegt?</span><br>
+                <br>
+                <b>Gegeben:</b><br>
+                Sei K = Q (rationale Zahlen)<br>
+                Seien v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>, v<sub>4</sub>, v ∈ K<sup>4x1</sup><br>
+                <br>
+                
+                \[
+                  
+                (v_1, v_2, v_3) =
+                \begin{bmatrix}    
+                    \begin{bmatrix}
+                        1 \\ 2 \\ 3 \\ 4
+                    \end{bmatrix}
+                    ,
+                    \begin{bmatrix}
+                        -2 \\ 0 \\ -4 \\ 1
+                    \end{bmatrix}
+                    ,
+                    \begin{bmatrix}
+                        5 \\ -2 \\ 6 \\ 1
+                    \end{bmatrix}
+                \end{bmatrix}
+                ,
+                v =
+                \begin{bmatrix}
+                    -19 \\ 43 \\ -12 \\ 3
+                \end{bmatrix}
+                \]
+            </p>
+            <p>
+                <b>Frage:</b> Liegt v im Spann von v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>?<br>
+                <br>
+                -> Stelle <b>erweiterte Koeffizientenmatrix</b> auf.
+
+                \[
+                \begin{bmatrix}
+                    v_1 & v_2 & v_3 && v
+                \end{bmatrix}
+                \]
+
+                \[
+                \begin{bmatrix}
+                    1 & -2 & 5 & -19 \\
+                    2 & 0 & -2 & 43 \\
+                    3 & -4 & 6 & -12 \\
+                    4 & 1 & 1 & 3
+                \end{bmatrix}
+                \]
+
+                -> Löse das LGS mit <b>Gauß</b>.<br>
+
+                \[
+                \begin{bmatrix}
+                    1 & 0 & 0 & 5 \\
+                    0 & 1 & 0 & 2 \\
+                    0 & 0 & 1 & -4 \\
+                    0 & 0 & 0 & 0
+                \end{bmatrix}
+                \]
+
+                -> <b>Ja</b>, v liegt im Spann von v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>, da das LGS lösbar ist.
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Basis</h2>
+            <p>
+                Eine Basis von V ist eine <b>Menge von Vektoren</b>, die den Vektorraum V erzeugen und linear unabhängig sind.<br>
+                <br>
+                Heißt:<br>
+                <b>1.</b> Es liegt ein <b>Erzeugendensystem</b> vor.<br>
+                <b>2.</b> Die Vektoren sind <b>linear unabhängig.</b>
+            </p>
+            <p>
+                <span class="blue">Wie überprüfe ich ob etwas eine Basis ist?</span><br>
+                <br>
+                -> Stelle <b>LGS</b> auf.<br>
+                &nbsp; &nbsp; &nbsp;Wenn das LGS <b>lösbar</b> ist, dann ist die Menge eine Basis.
+            </p>
+            <white-space></white-space>
+        </div>
+
+        <div class="container" id="section5">
+            <h1>Rang</h1>
+            <p>
+                Der <b>Rang</b> einer Matrix ist die maximale Anzahl linear unabhängiger Zeilen- oder Spaltenvektoren.<br>
+                <br>
+                Der <b>Spaltenrang</b> ist die Anzahl linear unabhängiger Spaltenvektoren.<br>
+                Der <b>Zeilenrang</b> ist die Anzahl linear unabhängiger Zeilenvektoren.<br>
+                Dabei ist der <b>Spaltenrang = Zeilenrang</b>.<br>
+                <br>
+                <span class="blue">Beispiel:</span><br>
+                \[
+                A =
+                \begin{bmatrix}
+                    1 & 0 & 2 & -4 \\
+                    3 & -5 & 1 & -7 \\
+                    2 & -5 & -1 & a
+                \end{bmatrix}
+                \]
+                -> Nach Anwendung des <b>Gauß</b>-Algorithmus erhalten wir:
+                \[
+                \begin{bmatrix}
+                    1 & 0 & 2 & -4 \\
+                    0 & 1 & 1 & -1 \\
+                    0 & 0 & 0 & a + 3
+                \end{bmatrix}
+                \]
+                Dann ist<br>
+                <b>rang(A)</b> = 2, wenn a = -3<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3, wenn a ≠ -3<br>
+                da, <b>wenn a = -3</b>, die dritte Zeile <b>linear abhängig</b> ist. (eine 0-Zeile wäre), bzw.<br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<b>wenn a ≠ -3</b>, die dritte Zeile <b>linear unabhängig</b> ist. (keine 0-Zeile wäre)<br>
+            </p>
+        </div>
+
+        <div class="container" id="section6">
+            <h1>Determinanten</h1>
+            <p>
+                Die <b>Determinante</b> einer quadratischen Matrix A ist eine Funktion, die einer quadratischen Matrix eine Zahl zuordnet.<br>
+                <br>
+                <span class="blue">Wie bestimme ich die Determinante?</span><br>
+                <br>
+                Bei einer Matrix <b>A ∈ K<sup>2x2</sup></b> gilt:<br>
+
+                \[ A=
+                \begin{bmatrix}
+                a & b \\ 
+                c & d 
+                \end{bmatrix}
+                \]
+            </p>
+            <white-space></white-space>
+                <fieldset class="p-center">
+                <br>
+                <span class="blue">det(A) = ad - bc</span><br>
+                <br>
+                (multipliziere a * d über Kreuz<br>
+                und ziehe b * c über kreuz ab)
+                </fieldset>
+
+            <white-space></white-space>
+            <h2>Laplace</h2>
+            <p>
+                Bei einer <b>Matrix A ∈ K<sup>3x3</sup></b> wenden wir den <b>Entwicklungssatz von Laplace</b> an.<br>
+                Dabei wird die Determinante in Unterdeterminanten zerlegt.<br>
+                <br>
+                <b>Verfahren:</b><br>
+                <br>
+                <b>1.</b> Wähle eine <span class="blue">Zeile</span> / <span class="red">Spalte</span> (mit möglichst vielen Nullen drin)<br>
+                <b>2.</b> Trage Vorzeichen ein.<br>
+                <b>3.</b> Streiche <span class="red">Spalte</span> / <span class="blue"> Zeile</span><br>
+                <br>
+                (Wenn Zeile in Schritt 1, dann streiche Spalte in Schritt 3 und umgekehrt)<br>
+                <br>
+                <span class="blue">Beispiel:</span><br>
+                \[
+                A =
+                \begin{bmatrix}
+                    1_+ & 2_- & 0_+ \\
+                    3_- & 0_+ & 4_- \\
+                    2_+ & -1_- & -2_+
+                \end{bmatrix}
+                \]
+                -> Wähle die <span class="blue">erste Zeile (1 2 0)</span><br>
+                -> Trage Vorzeichen ein (Gitter abwechselnd + & -, Verwendung nur bei ausgewählter Zeile)<br>
+            
+                \[
+                det(A) = 1 * det() - 2 * det() + 0 * det()
+                \]
+
+                -> Streiche die <span class="red">erste Spalte (1 3 2)</span><br>
+                -> Trage die restlichen Zahlen in die erste Unterdeterminante. Diese wären hier:
+                
+                \[
+                det(A) = 1 * det
+                \begin{bmatrix}
+                    0 & 4 \\
+                    -1 & -2
+                \end{bmatrix}
+                - 2 * det()
+                \]
+
+                -> Streiche <span class="red">zweite Spalte (2 0 -1)</span><br>
+                -> Trage die restlichen Zahlen in die zweite Unterdeterminante.
+
+                \[
+                det(A) = 1 * det
+                \begin{bmatrix}
+                    3 & 4 \\
+                    2 & -2
+                \end{bmatrix}
+                - 2 * det
+                \begin{bmatrix}
+                    3 & 0 \\
+                    2 & -1
+                \end{bmatrix}
+                \]
+
+                -> Berechne die Unterdeterminanten.<br>
+
+                \[
+                det(A) = 1 *(-14) - 2*(-3) = -14 + 6 = -8
+                \]
+                Also <b>det(A) = -8</b> ≠ 0, also ist die Matrix <b>invertierbar</b>.
+            </p>
+            <white-space></white-space>
+        </div>
+
+        <div class="container" id="section7">
+            <h1>Eigenwerte von Matrizen</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section8">
+            <h1>Lineare Abbildungen</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section9">
+            <h1>Basiswechsel</h1>
+            <h2>Darstellungsmatrix</h2>
+            <p>
+                Lorem Ipsum.
+            </p>
+        </div>
+
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

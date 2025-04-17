@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\stylesheet.css" rel="stylesheet"/>
+
+    <link href="img\Logo.png" rel="icon" type="image/x-icon"/>
+    <title>Informatik Studium</title>
+</head>
+
+<body>
+    <div class="container">
+
+    <h1>Grundlagen technischer Informatik</h1>
+        <nav class="navigation">
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section1">01 Zeichen und Zahlen</a></li>
+                    <li><a href="#section2">02 Boolesche Algebra</a></li>
+                    <li><a href="#section3">03 Elektrotechnische Grundlagen</a></li>
+                    <li><a href="#section4">04 PLA-Synthese</a></li>
+                </ul>
+            </div>
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section5">05 Arithmetikschaltkreise</a></li>
+                    <li><a href="#section6">06 Prozessoraufbau</a></li>
+                    <li><a href="#section7">07 Pipelining</a></li>
+                    <li><a href="#section8">08 Speicher</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container" id="section1">
+        <h1>Zeichen und Zahlen</h1>
+            
+        <h2>Bit, Byte</h2>
+        <p>
+            Ein <b>Bit</b> ist die kleinste Informationseinheit und kann die <b>Werte 0 oder 1</b> annehmen.<br>
+            Ein <b>Byte</b> besteht aus <b>8 Bit</b> und kann somit 256 verschiedene Zustände annehmen.
+        </p>
+
+        <p class="p-center">
+            B<sup>n</sup> = {0, 1}<sup>n</sup>
+        </p>
+        
+        <trenn-strich></trenn-strich>
+        <h2>ASCII-Tabelle</h2>
+        <p>
+            <b>ASCII</b> ist ein Zeichensatz, der 128 Zeichen umfasst und jedem Zeichen eine Zahl zuordnet.<br>
+            <b>Ein Zeichen entspricht einem Byte. (8 Bit)</b><br>
+            <br>
+            Ablesen in folgender Reihenfolge:<br>
+            c<sub>6</sub> c<sub>5</sub> c<sub>4</sub> c<sub>3</sub> c<sub>2</sub> c<sub>1</sub> c<sub>0</sub> c<sub>-1</sub><br>
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\ASCII.png">
+        <trenn-strich></trenn-strich>
+
+        <h2>Stellenwertsysteme (Zahlensysteme)</h2>
+        <p>
+            Ein <b>Stellenwertsystem</b> ist ein System zur Darstellung von Zahlen, bei dem die Ziffern einer Zahl einen unterschiedlichen Wert haben, je nachdem, an welcher Stelle sie stehen.<br>
+            Die <b>Basis b</b> gibt das jeweilige Stellenwertsystem an.
+        </p>
+
+        <fieldset>
+        <div class="grid-container3">
+            <div>
+                <p>
+                    <b>Basis b = 2</b><br>
+                    <b>Basis b = 8</b><br>
+                    <b>Basis b = 10</b><br>
+                    <b>Basis b = 16</b>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <b>Binärsystem</b><br>
+                    <b>Oktalsystem</b><br>
+                    <b>Dezimalsystem</b><br>
+                    <b>Hexadezimalsystem</b>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <b>0, 1</b><br>
+                    <b>0, 1, 2, 3, 4, 5, 6, 7</b><br>
+                    <b>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</b><br>
+                    <b>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F</b>
+                </p>
+            </div>
+        </div>
+        </fieldset>
+        <white-space></white-space>
+
+        <h2>Wertigkeiten</h2>
+        <p>
+            Die Wertigkeiten der jeweiligen Zahlensysteme sehen für einen Byte (einer Reihe von 8 Bits) wie folgt aus:<br>
+        </p>
+        <p>
+            <b>Binär</b><br>
+            2<sup>7</sup> 2<sup>6</sup> 2<sup>5</sup> 2<sup>4</sup> 2<sup>3</sup> 2<sup>2</sup> 2<sup>1</sup> 2<sup>0</sup><br>
+            = 128 &nbsp64 &nbsp32 &nbsp16 &nbsp8 &nbsp4 &nbsp2 &nbsp1<br>
+        </p>
+        <p>
+            <b>Oktal</b><br>
+        <p>
+            <b>Dezimal</b><br>
+            10<sup>7</sup> 10<sup>6</sup> 10<sup>5</sup> 10<sup>4</sup> 10<sup>3</sup> 10<sup>2</sup> 10<sup>1</sup> 10<sup>0</sup><br>
+            = 10.000.000 &nbsp1.000.000 &nbsp100.000 &nbsp10.000 &nbsp1.000 &nbsp100 &nbsp10 &nbsp1<br>
+        </p>
+        <p>
+            <b>Hexadezimal</b><br>
+            16<sup>7</sup> 16<sup>6</sup> 16<sup>5</sup> 16<sup>4</sup> 16<sup>3</sup> 16<sup>2</sup> 16<sup>1</sup> 16<sup>0</sup><br>
+            <br>
+            0 1 2 3 4 5 6 7 8 9 A B C D E F<br>
+            mit<br>
+            A = 10, B = 11, C = 12,<br>
+            D = 13, E = 14, F = 15
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Festkommadarstellung</h2>
+        <p>
+            Um negative Zahlen in Binär zu repräsentieren, bestimmen wir das <b>erste Bit</b> und nutzen entweder die <b>Einer-Komplement-Darstellung</b> oder die <b>Zweier-Komplement-Darstellung</b>.
+        </p>
+        <white-space></white-space>
+        <h2>Einer-Komplement-Darstellung</h2>
+        <p>
+            Bei der <b>Einer-Komplement-Darstellung</b> werden je nach <b>Vorzeichenbit</b> alle anderen Ziffern <b>invertiert.</b><br>
+            Jedoch existiert hier das Problem der Doppeldeutigkeit der 0. (000 & 111)
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\EinerKomplement.png">
+        <white-space></white-space>
+        <white-space></white-space>
+        <img class="center" src="img\EinerKomplement2.png">
+        <white-space></white-space>
+        <h3>Beispiel</h3>
+        <p>
+            1010 ist negativ<br>
+            <b>invertiere:</b><br>
+            1101
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Zweier-Komplement-Darstellung</h2>
+        <p>
+            Um eine Zahl in die <b>Zweier-Komplement-Darstellung</b> zu bringen, wird die <b>Einer-Komplement-Darstellung</b> angewendet und <b>1 addiert.</b><br>
+            <br>
+            Heißt: <b>invertieren und 1 addieren</b>
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\ZweierKomplement.png">
+        <white-space></white-space>
+        <h3>Addition</h3>
+        <p>
+            Einer-Komplement: 1101<br>
+            Zweier-Komplement: 1101 + 0001 = 1110
+        </p>
+        <white-space></white-space>
+        <h3>Multiplikation</h3>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Gleitkommadarstellung</h2>
+        <p>
+            Das Problem an der <b>Festkommadarstellung</b> ist, dass sie nur eine begrenzte Anzahl an Zahlen darstellen kann.<br>
+            <br>
+            Beispiel:<br>
+            1 Bit für +/-<br>
+            8 Bit für eine Zahl (vor Komma)<br>
+            23 Bit für die Nachkommastellen<br>
+            <br>
+            <b>Lösung: Gleitkommadarstellung</b>
+        </p>
+        <p>
+            Eine Gleitkommazahl besteht aus einem <b>Vorzeichenbit</b>, einem <b>Exponenten</b> und einer <b>Mantisse</b>.<br>
+            <br>
+            <b>Beispiel:</b><br>
+            1,101 * 2<sup>3</sup>
+        </p>
+        <p>
+            Um eine Gleitkommazahl in Dezimal zu konvertieren, wird folgende Formel angewendet:
+        </p>
+        <p class="p-center">
+            (-1)<sup>Vorzeichen</sup> * 2<sup>Exponent * 127</sup> * (1 + Mantisse)
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Gleitkommadarstellung1.png">
+        <white-space></white-space>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section2">
+        <h1>Boolesche Algebra</h1>
+        <p>
+            Eine <b>Boolesche Algebra</b> ist durch das Tupel <b>(M, +, *, ~)</b> definiert sobald für <b>beliebige x,y ∈  M</b> folgende <b>Axiome</b> gelten:
+        </p>
+        <details>
+        <summary><h2>Axiome</h2></summary>
+        <p>
+            Kommutativität
+        </p>
+        <p class="p-center">
+            x + y = y + x,<br>
+            x * y = y * x
+        </p>
+        <p>
+            Assoziativität
+        </p>
+        <p class="p-center">
+            (x + y) + z = x + (y + z),<br>
+            (x * y) * z = x * (y * z)
+        </p>
+        <p>
+            Absorption
+        </p>
+        <p class="p-center">
+            x + (x * y) = x,<br>
+            x * (x + y) = x
+        <p>
+            Distributivität
+        </p>
+        <p class="p-center">
+            x * (y + z) = (x * y) + (x * z),<br>
+            x + (y * z) = (x + y) * (x + z)
+        </p>
+        <p>
+            Auslöschung
+        </p>
+        <p class="p-center">
+            x + (y * (~y)) = x,<br>
+            x * (y + (~y)) = x
+        </p>
+        </details>
+        <white-space></white-space>
+        <details>
+        <summary><h2>Eigenschaften</h2></summary>
+        <p>
+            Idempotenz
+        </p>
+        <p class="p-center">
+            x + x = x,<br>
+            x * x = x
+        </p>
+        <p>
+            Neutralität
+        </p>
+        <p class="p-center">
+            x + 0 = x,<br>
+            x * 1 = x
+        </p>
+        <p>
+            Inversität
+        </p>
+        <p class="p-center">
+            x = ~(~x)
+        </p>
+        <p>
+            de-Morgan
+        </p>
+        <p class="p-center">
+            (~x) * (~y) = ~(x + y),<br>
+            (~x) + (~y) = ~(x * y)
+        </p>
+        <p>
+            Consensus
+        </p>
+        <p class="p-center">
+            x * y + x * ~y = x,<br>
+            (x + y) * (x + ~y) = x
+        </p>
+        </details>
+
+        <trenn-strich></trenn-strich>
+
+        <p>
+            Folgende algebraische Strukturen sind <b>Boolesche Algebren:</b><br>
+            <br>
+            <b>1. </b>(B, ∨, ∧, ¬) mit B = {0, 1}<br>
+        </p>
+        <p class="p-center">
+            x ∨ y = max(x, y)<br>
+            x ∧ y = min(x, y)<br>
+            ¬x = 1 - x
+        </p>
+        <p>
+            <b>2.</b> Für eine beliebige Menge M die Teilmengenalgebra (2<sup>m</sup>, ∪, ∩, ~)<br>
+        </p>
+        <img class="center" src="img\Teilmengenalgebra.png">
+            
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section3">
+        <h1>Elektrotechnische Grundlagen</h1>
+        <p>
+            Lorem Ipsum.
+        </p>
+    </div>
+
+    <div class="container" id="section4">
+        <h1>PLA-Synthese</h1>
+        <h2>Programmierbare Logikfelder (PLA)</h2>
+        <p>
+            Ein PLA besteht aus einer <b>AND-Matrix</b> und einer <b>OR-Matrix</b>.<br>
+            Die <b>AND-Matrix</b> besteht aus <b>Produkten</b> und die <b>OR-Matrix</b> aus <b>Summen</b>.
+        </p>
+        <img class="center" src="img\PLA.png">
+        <trenn-strich></trenn-strich>
+        <h2>Würfeldarstellung</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <img class="center" src="img\Würfeldarstellung.png">
+        <trenn-strich></trenn-strich>
+        <h2>Implikanten</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <img class="center" src="img\Implikanten.png">
+        <white-space></white-space>
+        <h3>Primimplikanten</h3>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Minimierung (Minimalpolynome)</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <white-space></white-space>
+        <h3>Quine-Verfahren</h3>
+        <p>
+            Lorem Ipsum.
+        </p>
+    </div>
+
+    <div class="container" id="section5">
+        <h1>Arithmetikschaltkreise</h1>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <white-space></white-space>
+        <h2>Addierer</h2>
+        <white-space></white-space>
+
+        <h2>Halbaddierer</h2>
+        <p>
+            Ein <b>Halbaddierer</b> ist ein Schaltkreis, der zwei Bits addiert und das Ergebnis sowie den Übertrag ausgibt.<br>
+            Er besteht aus einem <b>XOR-Gatter</b> und einem <b>AND-Gatter</b>.
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Halbaddierer.png">
+        <white-space></white-space>
+
+        <h2>Volladdierer</h2>
+        <p>
+            Ein <b>Volladdierer</b> ist ein Schaltkreis, der zwei Bits und einen Übertrag addiert und das Ergebnis sowie den Übertrag ausgibt.<br>
+            Er besteht aus zwei <b>Halbaddierern</b> und einem <b>OR-Gatter</b>.
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Volladdierer.png">
+        <white-space></white-space>
+
+        <h3>Kosten</h3>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Carry-Ripple-Addierer</h2>
+        <p>
+            Ein <b>Carry-Ripple-Addierer</b> besteht aus mehreren <b>Volladdierern</b>, die in Reihe geschaltet sind.<br>
+            Mithilfe dieses Addierers können auch 8/32/64 Bit binär addiert werden.
+        </p>
+        <white-space></white-space>
+        <img class="center" src="img\Carry-Ripple.png">
+        <trenn-strich></trenn-strich>
+        <h2>Conditional-Sum-Addierer</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Carry-Lookahead-Addierer</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Subtrahierer</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Multiplizierer</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Arithmetik-Logik-Einheit (ALU)</h2>
+        <p>
+            Lorem Ipsum.
+        </p>
+    </div>
+
+    <div class="container" id="section6">
+        <h1>Prozessoraufbau</h1>
+        <p>
+            Lorem Ipsum.
+        </p>
+    </div>
+
+    <div class="container" id="section7">
+        <h1>Pipelining</h1>
+        <p>
+            Lorem Ipsum.
+        </p>
+    </div>
+
+    <div class="container" id="section8">
+        <h1>Speicher</h1>
+        <p>
+            Lorem Ipsum.
+        </p>
+    </div> 
+</body>
+</html>

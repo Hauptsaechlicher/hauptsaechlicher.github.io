@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\stylesheet.css" rel="stylesheet"/>
+
+    <link href="img\Logo.png" rel="icon" type="image/x-icon"/>
+    <title>Informatik Studium</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Diskrete Strukturen</h1>
+        <nav class="navigation">
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section1">01 Logik und Mathematische Aussagen</a></li>
+                    <li><a href="#section2">02 Beweismethoden</a></li>
+                    <li><a href="#section3">03 Relationen</a></li>
+                    <li><a href="#section4">04 Abbildungen</a></li>
+                    <li><a href="#section5">05 Graphentheorie</a></li>
+                    <li><a href="#section6">06 Kombinatorik</a></li>
+                </ul>
+            </div>
+            <div class="navdiv">
+                <ul>
+                    <li><a href="#section7">07 Teilbarkeitstheorie</a></li>
+                    <li><a href="#section8">08 Primzahlen</a></li>
+                    <li><a href="#section9">09 Fundamentalsatz der Arithmetik</a></li>
+                    <li><a href="#section10">10 Kongruenzen / Restklassen</a></li>
+                    <li><a href="#section11">11 RSA-Kryptosystem</a></li>
+                    <li><a href="#section12">12 Algebraische Strukturen</a></li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+
+        <div class="container" id="section1">
+            <h1>Logik und Mathematische Aussagen</h1>
+            <h2>Operatoren</h2>
+            <white-space></white-space>
+            <fieldset>
+                <p>
+                    <b>¬</b> : Negation (NICHT)<br>
+                    <b>^</b> : Konjunktion (UND)<br>
+                    <b>v</b> : Disjunktion (ODER)<br>
+                    <b>=></b> : Implikation (WENN-DANN)<br>
+                    <b><=></b> : Äquivalenz (GENAU DANN WENN)
+                </p>
+            </fieldset>
+            <trenn-strich></trenn-strich>
+            <h2>Wahrheitstafel</h2>
+            <p>
+                Eine <b>Wahrheitstafel</b> ist wie folgt aufgebaut:
+            </p>
+            <white-space></white-space>
+            <img src="img\Wahrheitstafel.png" class="center">
+
+            <trenn-strich></trenn-strich>
+            <h2>DNF (Disjunktive Normalform)</h2>
+            <white-space></white-space>
+            <fieldset>
+                <p>
+                    <b>Definition:</b><br>
+                    Ein Term D ist in <b>disjunktiver Normalform (DNF)</b> bezüglich der Variablen A<sub>1</sub>, ... , A<sub>n</sub>, wenn<br>
+                </p>
+                <p class="p-center">
+                    D = C<sub>1</sub> v C<sub>2</sub> v ... v C<sub>k</sub>
+                </p>
+                <p>
+                    wobei C<sub>j</sub> = B<sub>1</sub> ^ B<sub>2</sub> ^ ... ^ B<sub>m</sub> für j = 1, ... , k paarweise verschieden und<br>
+                    B<sub>i</sub> = A<sub>i</sub> oder B<sub>i</sub> = ¬A<sub>i</sub> für i = 1, ... , n
+            </fieldset>
+            <p>
+                Was bedeutet das?<br>
+                <br>
+                "Das sind Oder-Verknüpfungen und UND-Ketten<br>
+                und dienen einer simpleren Darstellung für Logik Aussagen"
+            </p>
+            <p>
+                <span class="blue">Beispiel:</span><br>
+                <br>
+                <b>Gegeben:</b> (A v B) ^ C <=> A v C<br>
+                <br>
+                <b>Aufgabe:</b> Bestimme unter Angabe der zugehörigen Wahrheitstafel eine DNF für die Aussage.<br>
+                <br>
+                <b>Lösungsansatz:</b> Stelle Wahrheitstafel auf. Für alle Wertepaare, bei denen<br>
+                <b>(A v B) ^ C <=> A v C wahr</b> ist, schreibe die <b>Wertepaare</b> in DNF-Form auf.<br>
+            </p>
+            <trenn-strich></trenn-strich>
+
+        </div>
+
+        <div class="container" id="section2">
+            <h1>Beweismethoden</h1>
+            <white-space></white-space>
+            <h2>Vollständige Induktion</h2>
+            <p>
+                Eine <b>vollständige Induktion</b> ist in folgende Schritte eingeteilt:<br>
+                <br>
+                <b>1. Induktionsbasis:</b> Beweise, dass die Aussage für n = 1 gilt.<br>
+                <b>2. Induktionsschritt:</b> (k -> k + 1)<br>
+                <br>
+                <b>&nbsp; &nbsp; 2.1 Annahme:</b> "Für ein beliebiges, aber festes k ∈ lN sei A(k) wahr.<br>
+                <b>&nbsp; &nbsp; 2.2 Zu zeigen:</b> Beweise, dass A(k) -> A(k + 1) gilt.<br>
+                <b>&nbsp; &nbsp; 2.3 Induktionsbeweis:</b> Rechnung
+            </p>
+            <white-space></white-space>
+            <p>
+                <span class="blue">Beispiel:</span><br>
+                <br>
+                <b>Behauptung:</b> Für alle n ∈ N gilt: <b>∑<sup>n</sup><sub>j=1</sub> j = 1 + 2 + ... + n = <sup>n (n + 1)</sup>/ <sub>2</sub></b><br>
+                <b>Aufgabe:</b> Beweise dies mittels vollständiger Induktion.
+            </p>
+            <img class="center" src="img\Induktion1.png">
+            <white-space></white-space>
+        </div>
+
+        <div class="container" id="section3">
+            <h1>Relationen</h1>
+            <h2>Äquivalenzrelationen</h2>
+            <white-space></white-space>
+            <fieldset>
+            <p>
+                <b>Definition:</b><br>
+                Eine Relation R auf einer Menge M ist eine Äquivalenzrelation,<br>
+                wenn sie <b>reflexiv, symmetrisch</b> und <b>transitiv</b> ist.
+            </p>
+            </fieldset>
+            <white-space></white-space>
+            <p>
+                <span class="blue">Beispiel:</span><br>
+                <b>Zeige:</b> R = {(x, y) ∈ N x N | x + y ist gerade} ist eine Äquivalenzrelation.
+            </p>
+            <p>
+                <b>Z.Z.:</b> R reflexiv, symmetrisch und transitiv.
+            </p>
+            <white-space></white-space>
+            <h3>1. Reflexiv</h3>
+            <p>
+                <b>Z.Z.: ∀x ∈ N:<br>
+                    (x,x) ∈ R</b><br>
+                    (aka. xRx)<br>
+                <br>
+                Sei x ∈ N.<br>x + x = 2x, also gerade und (x, x) ∈ R
+            </p>
+            <white-space></white-space>
+            <h3>2. Symmetrisch</h3>
+            <p>
+                <b>Z.Z.: ∀x,y ∈ N:<br>
+                    (x,y) ∈ R, dann auch (y,x) ∈ R</b><br>
+                    (aka. xRy => yRx)<br>
+                <br>
+                Seien x, y ∈ N mit (x, y) ∈ R.<br>
+                Dann ∃k ∈ N: <b>x + y = 2k</b><br>
+                Somit ist auch <b>y + x = 2k</b> und damit (y, x) ∈ R
+            </p>
+            <white-space></white-space>
+            <h3>3. Transitiv</h3>
+            <p>
+                <b>Z.Z.: ∀x,y,z ∈ N:<br>
+                    (x,y) ∈ R und (y,z) ∈ R, dann auch (x,z) ∈ R</b><br>
+                    (aka. xRy & yRz => xRz)<br>
+                <br>
+                Seien x, y, z ∈ N mit (x, y) ∈ R und (y, z) ∈ R.<br>
+                Dann ∃k, l ∈ N: <b>x + y = 2k</b> und <b>y + z = 2l</b><br>
+                Somit ist:<br>
+                <br><b>
+                (x + y) + (y + z) = 2k + 2l<br>
+                <=> x + 2y + z = 2k + 2l<br>
+                <=> x + 2y + z = 2(k + l)<br>
+                <=> x + z = 2(k + l - y)<br>
+                <=> x + z = 2<span class="red">m</span>
+                </b><br>
+                d.h. (x, z) ∈ R
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Ordnungsrelationen</h2>
+            <white-space></white-space>
+            <fieldset>
+            <p>
+                <b>Definition:</b> Eine Relation R auf einer Menge M ist eine Ordnungsrelation,<br>
+                wenn sie <b>reflexiv, anti-symmetrisch</b> und <b>transitiv</b> ist.
+            </p>
+            </fieldset>
+            <white-space></white-space>
+            <h3>Anti-Symmetrie</h3>
+            <p>
+                <b>Es gilt:</b> xRy & yRx (Siehe Symmetrie)<br>
+                <br>
+                xRy - yRx = 0<br>
+                (x + 3y) - (y + 3x) = 4k<sub>1</sub> - 4k<sub>2</sub><br>
+                <=> -2x + 2y = 4k<sub>1</sub> - 4k<sub>2</sub><br>
+                <=> -x + y = 2(k<sub>1</sub> - k<sub>2</sub>)<br>
+                <br>
+                Falls k<sub>1</sub> = 1, k<sub>2</sub> = 0<br>
+                Dann: -x + y = 2(1 - 0)<br>
+                <=> -x + y = 2<br>
+                <=> -x = 2 - y<br>
+                <=> = y - 2 =/ x<br>
+
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Äquivalenzklassen</h2>
+            <p>
+                Lorem Ipsum.
+            </p>
+            <white-space></white-space>
+        </div>
+
+        <div class="container" id="section4">
+            <h1>Abbildungen</h1>
+            <p>
+                Abbildungen  von Menge A und Menge B werden wie folgt dargestellt:
+            </p>
+            <img class="center" src="img\Abbildung1.png">
+
+            <white-space></white-space>
+            <p>
+                Abbildungen haben dabei folgende <b>Eigenschaften:</b>
+            </p>
+            <img class="center" src="img\Abbildung2.png">
+            <h2>Injektiv</h2>
+            <p>
+                Eine Abbildung ist injektiv, wenn jedes Element aus A auf ein Element aus B abgebildet wird.<br>
+                <b>Zu Zeigen</b> ist dass für alle a<sub>1</sub> und a<sub>2</sub> aus A gilt: <b>f(a<sub>1</sub>) ≠ f(a<sub>2</sub>) => a<sub>1</sub> ≠ a<sub>2</sub></b> 
+            </p>
+            <p>
+                <span class="blue">Beispiel:</span><br>
+                Ist f injektiv?<br>
+                ∀x<sub>1</sub>,x<sub>2</sub> ∈ M = lR\{1}:<br>
+                f(x<sub>1</sub>) = f(x<sub>2</sub>) => x<sub>1</sub> = x<sub>2</sub><br>
+                <br>
+                Seien x1, x2 ∈ lR\{1} mit f(x1) = f(x2)<br>
+                f = <sup>1</sup> / <sub>x - 1</sub><br>
+                <br>
+                <b>Z.Z.: x1 = x2</b><br>
+                Dann gilt<br>
+                <sup>1</sup> / <sub>x1 - 1</sub> = <sup>1</sup> / <sub>x2 - 1</sub><br>
+                x1 - 1 = x2 - 1, d.h.<br>
+                x1 = x2<br>
+                Somit ist f injektiv.
+            </p>
+            <white-space></white-space>
+
+            <h2>Surjektiv</h2>
+            <p>
+                Eine Abbildung ist surjektiv, wenn jedes Element aus B mindestens einmal abgebildet wird.<br>
+                <b>Zu Zeigen</b> ist dass für jedes b aus B ein a aus A existiert, sodass <b>f(a) = b</b>
+            </p>
+            <p>
+                <span class="blue">Beispiel:</span><br>
+                Ist f surjektiv?<br>
+                ∀y ∈ N = lR: ∃x ∈ M = lR\{1}: f(x) = y<br>
+                <br>
+                Sei y ∈ lR. Finde x ∈ lR\{1}, sodass f(x) = y,<br>
+                d.h. <sup>1</sup> / <sub>x - 1</sub> = y<br>
+                <br>
+                Löse nach x auf:<br>
+                <sup>1</sup> / <sub>x - 1</sub> = y<br>
+                (x - 1) * y = 1<br>
+                xy - y = 1<br>
+                xy = y + 1<br>
+                x = <sup>y + 1</sup> / <sub>y</sub><br>
+                <br>
+                Nur wenn y /= 0, dann ist x = <sup>y + 1</sup> / <sub>y</sub> ∈ lR\{1} definiert.<br>
+                Also ist f <b>nicht</b> surjektiv.<br>
+                <br>
+                Also f <b>nicht</b> bijektiv.
+            </p>
+
+            <trenn-strich></trenn-strich>
+
+        </div>
+
+        <div class="container" id="section5">
+            <h1>Graphentheorie</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section6">
+            <h1>Kombinatorik</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section7">
+            <h1>Teilbarkeitstheorie</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section8">
+            <h1>Primzahlen</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section9">
+            <h1>Fundamentalsatz der Arithmetik</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section10">
+            <h1>Kongruenzen / Restklassen</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+
+        <div class="container" id="section11">
+            <h1>RSA-Kryptosystem</h1>
+            <p>
+                Wir verfahren beim <b>RSA-Kryptosystem</b> wie folgt:<br>
+                (dies variiert je nach Aufgabenstellung)<br>
+                <br>
+                <span class="blue">1. Schlüsselerzeugung</span><br>
+                <br>
+                • Wähle <b>zwei Primzahlen p und q</b><br>
+                • Berechne <span class="orange">N = p * q</span><br>
+                • Berechne <b>φ(N) = (p - 1) * (q - 1)</b><br>
+                • Wähle ein zufälliges <span class="purple">e ∈ lN</span> mit:<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; <b>1 < e < φ(<span class="orange">N</span>)</b> und<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; <b>ggT(e, φ(<span class="orange">N</span>)) = 1</b><br>
+                • Berechne <span class="magenta">d ∈ lN</span> (das Inverse von e) mit:<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; <b><span class="purple">e</span> * <span class="magenta">d</span> ≡ 1 (mod φ(<span class="orange">N</span>))</b><br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; -> Nutze eeA von (e, φ(N))<br>
+                <br>
+                &nbsp;-> <b>Öffentlicher Schlüssel:</b> (e, N)<br>
+                &nbsp;-> <b>Privat:</b> d, p, q, φ(N)<br>
+                <white-space></white-space>
+                <span class="blue">2. Verschlüsselung</span><br>
+                <br>
+                • Wähle <span class="green"> Nachricht M</span> ∈ lN mit 0 <= m < N</b><br>
+                • Berechne <b><span class="red">C</span> = <span class="green">M</span><sup><span class="purple">e</span></sup> (mod <span class="orange">N</span>)</b><br>
+                <br>
+                <white-space></white-space>
+                <span class="blue">3. Entschlüsselung</span><br>
+                <br>
+                • Berechne <b><span class="green">M</span> = <span class="red">C</span><sup><span class="magenta">d</span></sup> (mod <span class="orange">N</span>)</b><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; -> Teile in Primfaktorzerlegung auf. (N -> p & q)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; -> Löse mittels CRS<br>
+            </p>
+            <trenn-strich></trenn-strich>
+            <h2>Beispiel:</h2>
+            <p>
+                <b>Aufgabe:</b> Es soll die Nachricht <span class="red"> C = 48</span> entschlüsselt werden.<br>
+                <b>a)</b> Bestimme <span class="purple">Inverse d</span> zu e<br>
+                <b>b)</b> Bestimme original Nachricht <span class="green">M</span><br>
+                <br>
+                <b>Gegeben:</b> (e, N) = (77, 143)<br>
+                <br>
+                <span class="blue">Lösung:</span><br>
+                <br>
+                <b>a)</b><br>
+                <b>Primfaktorzerlegung:</b><br>
+                Zerlege <span class="orange">N</span> in Primzahlen:<br>
+                <br>
+                143 = 11 * 13<br>
+                φ(143) = (11 - 1) * (13 - 1) = 120<br>
+                <br>
+                <b>eeA (e, φ(N))</b><br>
+                <white-space></white-space>
+                <img class="center" src="img\RSA-eeA.png">
+                <white-space></white-space>
+                Nach <b>Bézout</b> erhalten wir:<br>
+                ggT(77, 120) = 1 = -34 * 120 + <span class="magenta">53</span> * 77<br>
+                Also <span class="magenta">d = 53</span><br>
+                <br>
+                <b>b)</b><br>
+                <b>Entschlüsselung:</b><br>
+                M = C<sup>d</sup> (mod N)<br>
+                M = 48<sup>53</sup> (mod 143)<br>
+                <br>
+                Nach <b>Primfaktorzerlegung</b> erhalten wir folgendes Kongruenzsystem:<br>
+                <fieldset>
+                <b>1.</b> M ≡ 48<sup>53</sup> (mod 11)<br>
+                <b>2.</b> M ≡ 48<sup>53</sup> (mod 13)<br>
+                </fieldset>
+                1. M ≡ 48<sup>53</sup> ≡ 4<sup>53</sup> = (4<sup>10</sup>)<sup><sup>5</sup></sup> * 4<sup>3</sup> <b>≡*</b> 4<sup>3</sup> = 64 ≡ 9 (mod 11)<br>
+                2. M ≡ 48<sup>53</sup> ≡ (-4)<sup>53</sup> = (-4<sup>12</sup>)<sup><sup>4</sup></sup> * (-4)<sup>5</sup> <b>≡*</b> (-4)<sup>5</sup> = -1024 ≡ -10 ≡ 3 (mod 13)<br>
+                <b>*: Euler</b><br>
+                <br>
+                <b>Chinesischer Restsatz:</b><br>
+                Da ggT(11, 13) = 1, ist CRS anwendbar:<br>
+                <br>
+                <fieldset>
+                <b>1.</b> M ≡ 9 (mod 11)<br>
+                <b>2.</b> M ≡ 3 (mod 13)<br>
+                </fieldset>
+                <br>
+                a<sub>1</sub> = 1, m<sub>1</sub> = 11, N<sub>1</sub> = 13<br>
+                a<sub>2</sub> = 1, m<sub>2</sub> = 13, N<sub>2</sub> = 11<br>
+                <br>
+                <b>1. N<sub>1</sub> * y<sub>1</sub> ≡ 1 (mod m<sub>1</sub>)<br>
+                2. N<sub>2</sub> * y<sub>2</sub> ≡ 1 (mod m<sub>2</sub>)</b><br>
+                <br>
+                1.<br>
+                13y<sub>1</sub> ≡ 1 (mod 11)<br>
+                2y<sub>1</sub> ≡ 1 (mod 11)<br>
+                2y<sub>1</sub> + 11Y = 1<br>
+                -> eeA: (11, 2) -> <b>y<sub>1</sub> = -5</b><br>
+                <br>
+                2.<br>
+                11y<sub>2</sub> ≡ 1 (mod 13)<br>
+                11y<sub>2</sub> + 13Y = 1<br>
+                -> eeA: (13, 11) -> <b>y<sub>2</sub> = 6</b><br>
+                <br>
+                Also y<sub>1</sub> = -5 und y<sub>2</sub> = 6<br>
+                <br>
+                Nach Bézout gilt: ggt(13, 11) = 1 = -5 * 13 + 6 * 11<br>
+                <white-space></white-space>
+                <span class="blue">Partikuläre Lösung</span><br>
+                <br>
+                <fieldset class="p-center">
+                M<sub>0</sub> = a<sub>1</sub>y<sub>1</sub>N<sub>1</sub> + a<sub>2</sub>y<sub>2</sub>N<sub>2</sub><br>
+                </fieldset>
+                <br>
+                M<sub>0</sub> = 9 * (-5) * 13 + 3 * 6 * 11<br>
+                &nbsp; &nbsp; &nbsp; &nbsp;= -585 + 198<br>
+                &nbsp; &nbsp; &nbsp; &nbsp;= -387 ≡ 42 (mod 143)<br>
+                <br>
+                <b>Also ist M = 42.</b>
+            </p>
+
+            <white-space></white-space>
+        </div>
+
+        <div class="container" id="section12">
+            <h1>Algebraische Strukturen</h1>
+            <p>Lorem Ipsum.</p>
+        </div>
+</body>
+
+</html>
