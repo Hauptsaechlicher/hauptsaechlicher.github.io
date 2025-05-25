@@ -1,0 +1,10 @@
+window.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementById('info-banner');
+        if (localStorage.getItem('infoBannerClosed')) {
+            banner.style.display = 'none';
+        }
+        document.getElementById('close-info').onclick = function() {
+            banner.style.display = 'none';
+            localStorage.setItem('infoBannerClosed', 'true');
+        };
+    });

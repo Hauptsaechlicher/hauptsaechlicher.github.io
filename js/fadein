@@ -1,0 +1,17 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const fadeEls = document.querySelectorAll('div');
+
+    function checkFadeIn() {
+        const triggerBottom = window.innerHeight * 0.9;
+        fadeEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < triggerBottom) {
+                el.classList.add('show');
+                el.querySelectorAll('div').forEach(child => child.classList.add('show'));
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkFadeIn);
+    checkFadeIn();
+});
