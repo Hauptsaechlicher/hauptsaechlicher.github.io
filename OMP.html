@@ -20,41 +20,701 @@
         <nav class="navigation">
             <div class="navdiv">
                 <ul>
-                    <li><a href="#section1">01. </a></li>
-                    <li><a href="#section2">02. </a></li>
-                    <li><a href="#section3">03. </a></li>
-                    <li><a href="#section4">04. </a></li>
-                    <li><a href="#section5">05. </a></li>
-                    <li><a href="#section6">06. </a></li>
-                    <li><a href="#section7">07. </a></li>
-                    <li><a href="#section8">08. </a></li>
+                    <li><a href="#section1">01. Modelle & Modellierung</a></li>
+                    <li><a href="#section2">02. Klassen & Objekte</a></li>
+                    <li><a href="#section3">03. Vererbung</a></li>
+                    <li><a href="#section4">04. Polymorphie</a></li>
+                    <li><a href="#section5">05. Interfaces & Mehrfachvererbungen</a></li>
+                    <li><a href="#section6">06. Exceptions</a></li>
+                    <li><a href="#section7">07. Kapselung</a></li>
+                    <li><a href="#section8">08. Generics</a></li>
+                    <li><a href="#section9">09. JDK</a></li>
                 </ul>
             </div>
             <div class="navdiv">
                 <ul>
-                    <li><a href="#section9">09. </a></li>
-                    <li><a href="#section10">10. </a></li>
-                    <li><a href="#section11">11. </a></li>
-                    <li><a href="#section12">12. </a></li>
-                    <li><a href="#section13">13. </a></li>
-                    <li><a href="#section14">14. </a></li>
-                    <li><a href="#section15">15. </a></li>
-                    <li><a href="#section16">16. </a></li>
+                    <li><a href="#section10">10. Streams</a></li>
+                    <li><a href="#section11">11. Input / Output</a></li>
+                    <li><a href="#section12">12. Threads</a></li>
+                    <li><a href="#section13">13. Lösungsstrategien</a></li>
+                    <li><a href="#section14">14. Funktionale Programmierung</a></li>
+                    <li><a href="#section15">15. Logikorientierte Programmierung</a></li>
+                    <li><a href="#section16">16. Regelbasierte Programmierung</a></li>
+                    <li><a href="#section17">17. GUI-Frameworks & Anwendungen</a></li>
+                    <li><a href="#section18">18. Klausurthemen</a></li>
                 </ul>
             </div>
         </nav>
     </div>
 
-    <div class="container">
-        <h1>01</h1>
+    <div class="container" id="section1">
+        <h1>01 Modelle & Modellierung</h1>
+        <p>
+            (Wiederholung siehe PDA)
+        </p>
+
+        <white-space></white-space>
     </div>
 
-    <div class="container">
-        <h1>02</h1>
+    <div class="container" id="section2">
+        <h1>02 Klassen & Objekte</h1>
+        <p>
+            Wir stellen (Java) Programme in OMP als <b>UML-Let</b> Diagramme dar.
+        </p>
+        <white-space></white-space>
+
+        <h2>Objektdiagramme</h2>
+        <p>
+            <b>Objektdiagramme</b> bezeichnen die <b>Beziehungen von Objekten</b> zueinander.
+        </p>
+
+        <h3>Beispiel:</h3>
+
+        <white-space></white-space>
+        <img src="img\Objektdiagramm.png" class="center">
+        <white-space></white-space>
+
+        <pre><code>
+Domino first = new Domino(12);
+Domino second = new Domino(8);
+        </code></pre>
+
+        <trenn-strich></trenn-strich>
+
+        <h2>Klassendiagramme</h2>
+        <p>
+            <b>Klassendiagramme</b> sind eine Art von <b>"Bauplan" für Objekte</b>. Sie definieren die Struktur & das Verhalten von Objekten.
+        </p>
+        <white-space></white-space>
+        <img src="img\Klassendiagramm.png" class="center">
+        <white-space></white-space>
+
+        <pre><code>
+public class Domino {
+    // Attribute
+    private int dots;
+    private boolean fallen;
+    // Assoziation
+    private Domino neighbor;
+
+    // Konstruktoren, Getter, Setter, Methoden
+    public Domino(int dots) { ... }
+    public int getDots() { ... }
+    public boolean isFallen() { ... }
+    public void place(Domino neighbor) { ... }
+    public void push() { ... }
+}
+        </code></pre>
+
+        <trenn-strich></trenn-strich>
+        <h2>UML-Syntax</h2>
+        <p>
+            In UML-Diagrammen werden Klassen, Attribute und Methoden wie folgt dargestellt:
+        </p>
+
+        <h3>Zeichen:</h3>
+        <p>
+            <b>+</b> - public<br>
+            <b>-</b> - private<br>
+            <b>#</b> - protected<br>
+            <b>~</b> - package-private
+        </p>
+
+        <h3>Pfeile:</h3>
+
+        <white-space></white-space>
+
+        <details>
+            <summary>Assoziation:</summary>
+            <p class="p-center">⎯⎯⎯⎯⎯</p>
+            <pre><code>
+class Student {
+    String name;
+    Professor betreuer; // einfache Assoziation
+}
+
+class Professor {
+    String name;
+}
+            </code></pre>
+            <p>
+                Eine Assoziation zeigt eine Beziehung zwischen zwei Klassen an, ohne eine Richtung oder Aggregation zu spezifizieren.
+            </p>
+        </details>
+
+        <white-space></white-space>
+
+        <details>
+            <summary>Richtung:</summary>
+            <p class="p-center">⎯⎯⎯></p>
+            <pre><code>
+class Kunde {
+    Bestellung bestellung; // Kunde kennt Bestellung
+}
+
+class Bestellung {
+    // kennt Kunde NICHT
+}
+            </code></pre>
+            <p>
+                Eine Richtung zeigt an, dass eine Klasse eine andere Klasse kennt, aber nicht umgekehrt.
+            </p>
+        </details>
+
+        <white-space></white-space>
+
+        <details>
+            <summary>Aggregation:</summary>
+            <p class="p-center">◇⎯⎯⎯</p>
+            <pre><code>
+class Team {
+    List< Spieler > spieler; // Team besteht aus Spielern
+}
+
+class Spieler {
+    String name;
+}
+            </code></pre>
+            <p>
+                Wir verwenden eine Aggregation, wenn die Objekte unabhängig voneinander existieren können.
+            </p>
+        </details>
+
+        <white-space></white-space>
+
+        <details>
+            <summary>Komposition:</summary>
+            <p class="p-center">◆⎯⎯⎯</p>
+            <pre><code>
+class Haus {
+    private Zimmer zimmer; // Haus besitzt Zimmer fest
+    public Haus() {
+        zimmer = new Zimmer();
+    }
+}
+
+class Zimmer {
+    // Existiert nicht unabhängig vom Haus
+}
+            </code></pre>
+            <p>
+                Eine Komposition zeigt eine starke Beziehung an, bei der die Objekte nicht unabhängig voneinander existieren können. Heißt wenn das eine gelöscht wird, dann auch das andere.
+            </p>
+        </details>
+
+        <white-space></white-space>
+
+        <details>
+            <summary>Vererbung:</summary>
+            <p class="p-center">⎯⎯⎯⎯⎯⎯l></p>
+            <pre><code>
+class Tier {
+    void bewegen() {}
+}
+
+class Hund extends Tier {
+    void bellen() {}
+}
+            </code></pre>
+            <p>
+                Vererbung zeigt eine Beziehung zwischen einer Basisklasse (Superklasse) und einer abgeleiteten Klasse (Subklasse) an. Die Subklasse erbt Eigenschaften und Methoden der Superklasse.
+            </p>
+        </details>
+
+        <white-space></white-space>
+
+        <details>
+            <summary>Abhängigkeit</summary>
+            <p class="p-center">⎯ ⎯ ⎯ ⎯ ⎯ ⎯></p>
+            <pre><code>
+class DruckService {
+    void drucke(Dokument d) {
+        System.out.println(d.getInhalt());
+    }
+}
+
+class Dokument {
+    String getInhalt() { return "Text"; }
+}
+            </code></pre>
+            <p>
+                Eine Abhängigkeit zeigt an, dass eine Klasse eine andere Klasse verwendet, aber nicht direkt mit ihr verbunden ist. Sie ist oft temporär und kann sich ändern.
+            </p>
+        </details>
+    
+        <white-space></white-space>
+
+        <details>
+            <summary>Implementierung</summary>
+            <p class="p-center">⎯ ⎯ ⎯ ⎯ ⎯ ⎯l></p>
+            <pre><code>
+interface Beweglich {
+    void bewege();
+}
+
+class Auto implements Beweglich {
+    public void bewege() {
+        System.out.println("Fährt los!");
+    }
+}
+            </code></pre>
+            <p>
+                Eine Implementierung zeigt an, dass eine Klasse ein Interface implementiert. Die Klasse muss alle Methoden des Interfaces bereitstellen.
+            </p>
+        </details>
+
+        <white-space></white-space>
+        <h2>Beispiel (Klausur 2024 - Aufgabe 1)</h2>
+
+        <white-space></white-space>
+        <img class="center" src="img\Exam24-1.png">
+
+        <details>
+            <summary><h3>Code</h3></summary>
+
+            <pre><code>
+// Klassendiagramm
+public interface Beverage {}
+
+interface HotBeverage extends Beverage {}
+interface ColdBeverage extends Beverage {}
+
+abstract class Tea implements HotBeverage {}
+class BlackTea extends Tea {}
+
+abstract class Juice implements ColdBeverage {}
+class OrangeJuice extends Juice {}
+
+
+abstract class Container<T> {
+    protected T content;
+
+    public fill(T content) {
+        this.content = content;
+    };
+}
+
+class Cup<T extends Beverage> extends Container<T> {}
+class Glass<T extends ColdBeverage> extends Container<T> {}
+
+// Objektdiagramm
+class Beverages {
+    public static void main(String[] args) {
+        BlackTea morningTea = new BlackTea();
+        OrangeJuice morningJuice = new OrangeJuice();
+
+        Cup<Tea> teaCup = new Cup<>();
+        teaCup.fill(morningTea);
+
+        Cup<Juice> juiceCup = new Cup<>();
+        juiceCup.fill(morningJuice);
+
+        Glass<Tea> teaGlass = new Glass<>();
+        // The following line would cause a compile-time error because
+        // Glass is restricted to ColdBeverage
+        // teaGlass.fill(morningTea);
+
+        Glass<Juice> juiceGlass = new Glass<>();
+        juiceGlass.fill(morningJuice);
+    }
+}
+</code></pre>
+        </details>
+
+        <white-space></white-space>
     </div>
 
-    <div class="container">
-        <h1>...</h1>
+    <div class="container" id="section3">
+        <h1>03 Vererbung</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
     </div>
+
+    <div class="container" id="section4">
+        <h1>04 Polymorphie</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section5">
+        <h1>05 Interfaces & Mehrfachvererbungen</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section6">
+        <h1>06 Exceptions & Fehlerbehandlung</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section7">
+        <h1>07 Kapselung</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section8">
+        <h1>08 Generics</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section9">
+        <h1>09 JDK</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section10">
+        <h1>10 Streams</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section11">
+        <h1>11 Input / Output</h1>
+        <h2>I/O Streams</h2>
+        <p>
+            
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section12">
+        <h1>12 Threads</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section13">
+        <h1>13 Lösungsstrategien</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section14">
+        <h1>14 Funktionale Programmierung</h1>
+        <h2>SML</h2>
+        <p>
+            <b>Standard ML (SML)</b> ist eine <b>funktionale Programmiersprache</b> mit strenger Typisierung und Typinferenz. Sie basiert auf mathematischen Prinzipien und ist besonders geeignet für rekursive und symbolische Verarbeitung.
+        </p>
+        <h2>Grundkonzepte</h2>
+        <p>
+            <b>• SML ist stark typisiert:</b> Jeder Ausdruck hat einen statisch bestimmten Typ.<br>
+            <b>• Typinferenz:</b> Der Compiler erkennt die Typen automatisch, ohne explizite Typangabe.<br>
+            <b>• Funktionen sind Werte ersten Ranges:</b> Man kann sie übergeben, zurückgeben und speichern.<br>
+            <b>• Listen und Rekursion sind zentrale Werkzeuge.</b>
+        </p>
+        <h2>Syntax und Sprachelemente</h2>
+        <p>
+            <b>• Werte definieren:</b>
+        </p>
+        <pre><code>val x = 42; // Wertzuweisung
+val name = "Alice"; // String-Wert</code></pre>
+        <p>
+            <b>• Funktionen definieren:</b>
+        </p>
+        <pre><code>fun add(a: int, b: int): int = a + b;
+fun square(x: int): int = x * x;</code></pre>
+        <p>
+            <b>• Rekursive Funktionen:</b>
+        </p>
+        <pre><code>fun factorial(n: int): int =
+    | if n = 0 then 1
+    | else n * factorial(n - 1);</code></pre>
+        <p>
+            <b>• Pattern Matching:</b>
+        </p>
+        <pre><code>fun isZero 0 = true
+    | isZero _ = false;</code></pre>
+        <p>
+            <b>• Tupel und Listen:</b>
+        </p>
+        <pre><code>val pair = (1, "one"); // Tupel
+val numbers = [1, 2, 3, 4]; // Liste</code></pre>
+        <white-space></white-space>
+        <h2>Wichtige Funktionen & Kontgrollstrukturen</h2>
+        <p>
+            <b>• Bedingungsausdrücke:</b>
+        </p>
+        <pre><code>if x > 0 then "positiv" else "negativ";</code></pre>
+        <p>
+            <b>• Lokale Definition mit let-in-end:</b>
+        </p>
+        <pre><code>let val a = 1 in a + 2 end; // ergibt 3</code></pre>
+        <p>
+            <b>• Anonyme Funktionen (Lambdas):</b>
+        </p>
+        <pre><code>fn x => x * x // Anonyme Funktion</code></pre>
+        <white-space></white-space>
+        <h2>Listenfunktionen:</h2>
+        <pre><code>• head(List.hd) // Erstes Element der Liste
+• tail(List.tl) // Rest der Liste
+• map // Funktionsanwendung auf gesamte Liste
+    -> map(fn x => x * 2, [1, 2, 3]) // Verdopplung aller Elemente -> [2, 4, 6]
+• foldl // Reduktion einer Liste von links
+    -> foldl(fn (x, y) => x + y) 0, [1, 2, 3]
+    // ((0 + 1) + 2) + 3 = 6
+• foldr // Reduktion einer Liste von rechts
+    -> foldr(fn (x, y) => x - y) 0, [1, 2, 3]
+    // 1 - (2 - (3 - 0)) = 2
+• filter // Filtert Elemente basierend auf einer Bedingung
+    -> filter(fn x => x mod 2 = 0, [1, 2, 3, 4]) // Nur gerade Zahlen -> [2, 4]</code></pre>
+    <white-space></white-space>
+        <h2>Module & Datentypen</h2>
+        <p>
+            • Benutzerdefinierte Datentypen:
+        </p>
+        <pre><code>datatype color = Red | Green | Blue; // Definiert einen neuen Datentyp</code></pre>
+        <p>
+            <b>• Signatures, Structures, Functors:</b> modulare Programmierung (fortgeschritten).
+        </p>
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section15">
+        <h1>15 Logikorientierte Programmierung</h1>
+        <h2>Prolog</h2>
+        <p>
+            
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section16">
+        <h1>16 Regelbasierte Programmierung</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section17">
+        <h1>17 GUI-Frameworks & Anwendungen</h1>
+        <p>
+            Lorem Ipsum
+        </p>
+
+        <white-space></white-space>
+    </div>
+
+    <div class="container" id="section18">
+        <h1>18 Klausurthemen</h1>
+        
+        <h2>Historie</h2>
+
+        
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>SoSe 2019</b><br>
+                    1. Klassen, Objekte, Exceptions<br>
+                    2. UML<br>
+                    3. Polymorphie<br>
+                    4. Klassen, Interfaces, Generics, Exceptions<br>
+                    5. Dynamische Programmierung<br>
+                    6. Exceptions<br>
+                    7. SML<br>
+                    8. I/O
+                </p>
+            </div>
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    1. UML<br>
+                    2. Lokale Suche (Multiple Choice)<br>
+                    3. Prolog<br>
+                    4. Interfaces<br>
+                    5. Collections, Streams<br>
+                    6. Threads, Interfaces, Vererbung<br>
+                </p>
+            </div>
+
+            
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                <b>SoSe 2020</b><br>
+                    ?
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    ?
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>SoSe 2021</b><br>
+                    1. Objekte (Multiple Choice)<br>
+                    2. UML<br>
+                    3. Vererbung<br>
+                    4. Generics, JDK<br>
+                    5. I/O<br>
+                    6. Threads<br>
+                    7. Lokale Suche<br>
+                    8. Prolog<br>
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    1. Modellierung von UML-Modellen<br>
+                    2, Endliche Automaten (DEA)<br>
+                    3. Straßenkarte (UML Ergänzung)<br>
+                    4. Exceptions<br>
+                    5. Zeichenketten<br>
+                    6. Threads<br>
+                    7. SML<br>
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>SoSe 2022</b><br>
+                    1. Musikdatenbank (Klassend. -> Objektd.)<br>
+                    2. Iteratoren<br>
+                    3. Exceptions<br>
+                    4. I/O<br>
+                    5. SML<br>
+                    6. Medienwiedergabe<br>
+                    7. Lösungsstrategien (Multiple Choice)<br>
+
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    1. Stundenplan (Code + Objekt. -> Klassend.)<br>
+                    2. Polymorphie<br>
+                    3. Züge<br>
+                    4. Streams<br>
+                    5. Threads<br>
+                    6. Logikbasierte Programmierung<br>
+                    7. Lösungsstrategien<br>
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>SoSe 2023</b><br>
+                    1. Generics<br>
+                    2. UML und Java<br>
+                    3. Exceptions<br>
+                    4. Threads<br>
+                    5. Datenzugriff (Multiple Choice)<br>
+                    6. Java Typsystem<br>
+                    7. SML<br>
+                    8. I/O
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    1. UML: Smarthome<br>
+                    2. Terminologie (Kreuzworträtsel)<br>
+                    3. Interfaces und Anonyme Klassen<br>
+                    4. Dynamisches Binden
+                    5. Exceptions<br>
+                    6. Streams<br>
+                    7. Lösungsstrategien<br>
+                    8. Prolog
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <p>
+                    <b>SoSe 2024</b><br>
+                    1. UML und Java<br>
+                    2. Dynamisches Binden<br>
+                    3. UML<br>
+                    4. I/O<br>
+                    5. Lokale Suche<br>
+                    6. Generics<br>
+                    7. RuleBook<br>
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    <b>Wiederholungsklausur</b><br>
+                    1. UML und Java<br>
+                    2. Text zu UML<br>
+                    3. Text zu Java<br>
+                    4. Polymorphie<br>
+                    5. Exceptions<br>
+                    6. Threads<br>
+                    7. Streams<br>
+                    8. SML
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div>
+                <b>SoSe 2025</b><br>
+                ?
+            </div>
+
+            <div>
+                <b>Wiederholungsklausur</b><br>
+                ?
+            </div>
+        </div>
+
+        <white-space></white-space>
+    </div>
+
 </body>
 </html>
