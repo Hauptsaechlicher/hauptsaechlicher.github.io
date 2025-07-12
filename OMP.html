@@ -354,8 +354,11 @@ class Beverages {
     <div class="container" id="section6">
         <h1>06 Exceptions & Fehlerbehandlung</h1>
         <p>
-            Lorem Ipsum
+            Wir können in Java Exceptions verwenden, um Fehler zu behandeln, die während der Programmausführung auftreten. Exceptions ermöglichen es uns, den normalen Programmfluss zu unterbrechen und auf Fehlerbedingungen zu reagieren.
         </p>
+        <pre><code>
+
+        </code></pre>
 
         <white-space></white-space>
     </div>
@@ -363,8 +366,11 @@ class Beverages {
     <div class="container" id="section7">
         <h1>07 Kapselung</h1>
         <p>
-            Lorem Ipsum
+            Wir können Kapselung in Java verwenden, um die Sichtbarkeit von Klassen, Attributen und Methoden zu steuern. Kapselung hilft, den Zugriff auf interne Details einer Klasse zu beschränken und fördert die Datenintegrität.
         </p>
+        <pre><code>
+
+        </code></pre>
 
         <white-space></white-space>
     </div>
@@ -372,8 +378,29 @@ class Beverages {
     <div class="container" id="section8">
         <h1>08 Generics</h1>
         <p>
-            Lorem Ipsum
+            Wir können <b>Generics</b> in Java verwenden, um Klassen, Interfaces und Methoden zu erstellen, die mit verschiedenen Datentypen arbeiten können. Generics ermöglichen es uns, Typsicherheit zur Compile-Zeit zu gewährleisten und Code-Wiederverwendbarkeit zu fördern.<br>
+            <br>
+            Heißt stumpf ausgedrückt: Generics ermöglichen es uns, Klassen und Methoden zu erstellen, die mit verschiedenen Datentypen arbeiten können, ohne den Code mehrfach schreiben zu müssen.<br>
+            <br>
+            Der <b>generische Datentyp</b> (meistens <b>T</b> genannt) dient als eine Art Platzhalter, welcher durch den tatsächlichen Datentyp später ersetzt wird.
         </p>
+        <white-space></white-space>
+        <h2>Beispiel:</h2>
+        <pre><code>public class List< T > {} // T platzhalter
+    private final T[] content; // Liste kann aus beliebigen Datentypen bestehen
+    
+    public List() {
+        this.content = (T[]) new Object[0]; 
+    }
+
+    public void add(final T element) {
+        // ...
+    }
+
+    public T get(final int pos) {
+        // ...
+    }
+        </code></pre>
 
         <white-space></white-space>
     </div>
@@ -390,8 +417,22 @@ class Beverages {
     <div class="container" id="section10">
         <h1>10 Streams</h1>
         <p>
-            Lorem Ipsum
+            Wir können Streams in Java verwenden, um Daten zu verarbeiten. Streams ermöglichen es uns, Daten auf eine deklarative Weise zu verarbeiten, indem wir Operationen wie Filterung, Mapping und Reduktion anwenden.
         </p>
+        <pre><code>List< Integer > list = new ArrayList<>();
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+// [1, 2, 3, 4]
+
+String text = list.stream()
+    .filter(i -> i % 2 == 0) // Filtert gerade Zahlen
+    .map(i -> i * 2) // Multipliziert jede Zahl mit 2
+    .reduce("", (a, b) -> a + b + ", ") // Reduziert die Liste zu einem String
+    .get(); // return statement
+        </code></pre>
+
 
         <white-space></white-space>
     </div>
@@ -400,8 +441,63 @@ class Beverages {
         <h1>11 Input / Output</h1>
         <h2>I/O Streams</h2>
         <p>
-            
+            Wir können in Java I/O-Streams verwenden, um Daten zu lesen und zu schreiben. Es gibt zwei Haupttypen von Streams: <b>Byte-Streams</b> und <b>Character-Streams</b>.
         </p>
+        <trenn-strich></trenn-strich>
+        <h2>InputStream</h2>
+        <p>
+            <b>InputStream</b> ist eine abstrakte Klasse, die die Basis für alle Eingabestreams in Java bildet. Sie ermöglicht das Lesen von Daten aus verschiedenen Quellen wie Dateien, Netzwerken oder anderen Eingabegeräten.
+        </p>
+        <white-space></white-space>
+        <h2>OutputStream</h2>
+        <p>
+            <b>OutputStream</b> ist eine abstrakte Klasse, die die Basis für alle Ausgabestreams in Java bildet. Sie ermöglicht das Schreiben von Daten in verschiedene Ziele wie Dateien, Netzwerke oder andere Ausgabegeräte.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Buffered Streams</h2>
+        <p>
+            <b>Buffered Streams</b> sind spezielle Streams, die einen Puffer verwenden, um die Effizienz von Lese- und Schreiboperationen zu verbessern. Sie reduzieren die Anzahl der physischen I/O-Operationen, indem sie Daten in Blöcken lesen oder schreiben.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Data Streams</h2>
+        <p>
+            <b>Data Streams</b> ermöglichen das Lesen und Schreiben von primitiven Datentypen (wie int, float, double) in einem plattformunabhängigen Format. Sie sind nützlich, wenn Sie strukturierte Daten speichern oder übertragen möchten.
+        </p>
+        <white-space></white-space>
+        <h2>Object Streams</h2>
+        <p>
+            <b>Object Streams</b> ermöglichen das Lesen und Schreiben von Java-Objekten in einem serialisierten Format. Sie sind nützlich, wenn Sie komplexe Datenstrukturen speichern oder übertragen möchten.
+        </p>
+        <white-space></white-space>
+        <h2>File Streams</h2>
+        <p>
+            <b>File Streams</b> sind spezielle Streams, die für den Zugriff auf Dateien verwendet werden. Sie ermöglichen das Lesen und Schreiben von Daten in Dateien auf dem Dateisystem.
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Beispiel:</h2>
+        <pre><code>public class CopyBites {
+    public static void main(String[] args) throws IOException {
+        InputStream in = null;  // setze Streams erstmal auf null
+        OutputStream out = null;
+        try {
+            in = new FileInputStream("input.txt");  // Eingabedatei
+            out = new FileOutputStream("output.txt");  // Ausgabedatei
+
+            int c= = in.read(); 
+            while (c != -1) {  // Solange es noch Daten gibt
+                out.write(c);  // Schreibe das Byte in die Ausgabedatei
+                c = in.read();  // Lese das nächste Byte
+            }
+        } finally {
+            if (in != null) {
+                in.close();  // Schließe den Eingabestream
+            }
+            if (out != null) {
+                out.close();  // Schließe den Ausgabestream
+            }
+        }
+    }
+        </code></pre>
 
         <white-space></white-space>
     </div>
@@ -409,9 +505,81 @@ class Beverages {
     <div class="container" id="section12">
         <h1>12 Threads</h1>
         <p>
-            Lorem Ipsum
+            Wir können in Java Threads verwenden, um parallele Ausführung von Code zu ermöglichen. Threads sind leichtgewichtige Prozesse, die gleichzeitig laufen können.
         </p>
+        <h2>Beispiel</h2>
+        <pre><code>
+public class ArraySearchThread {
+    // Thread Suche mit aufgeteilten Array
+    public static void main(String[] args) throws InterruptedException {
+        int[] array = {2, 7, 3, 9, 23}; // Array gegeben
+        int x = 7;
+        int mid = array.length / 2;
+        final boolean[] found = new boolean[2];
 
+        Thread thread1 = new Thread(new Runnable() { // Thread 1
+            @Override
+            public void run() {
+                for (int i = 0; i < mid; i++) { // Sucht von 0 bis Mitte
+                    if (array[i] == x) {
+                        found[0] = true;
+                        break;
+                    }
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() { // Thread 2
+            @Override
+            public void run() {
+                for (int i = mid; i < array.length; i++) { // Sucht von Mitte
+                    if (array[i] == x) {                   // bis Ende
+                        found[1] = true;
+                        break;
+                    }
+                }
+            }
+        });
+
+        thread1.start();    // Starte Threads
+        thread2.start();
+
+        try {
+        thread1.join();     // Versuche threads zu synchronisieren
+        thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+        System.out.println("Summarized: "
+        + (found[0] || found[1] ? "Found" : "Not Found"));
+        }
+    }
+}
+        </code></pre>
+
+        <trenn-strich></trenn-strich>
+        <h2>Synchronize / Locks</h2>
+        <p>
+            <b>Synchronization</b> ist ein Mechanismus, der in Java verwendet wird, um den Zugriff auf gemeinsam genutzte Ressourcen zu steuern. Wenn mehrere Threads gleichzeitig auf eine gemeinsame Ressource zugreifen, kann es zu Inkonsistenzen oder unerwartetem Verhalten kommen. Synchronization hilft, diese Probleme zu vermeiden, indem sie sicherstellt, dass nur ein Thread gleichzeitig auf die Ressource zugreifen kann.<br>
+            <br>
+            <b>Locks</b> sind eine erweiterte Form der Synchronization, die mehr Flexibilität bietet. Sie ermöglichen es, den Zugriff auf Ressourcen feiner zu steuern und bieten zusätzliche Funktionen wie das Warten auf eine Bedingung oder das Freigeben von Locks.<br>
+        </p>
+        <h2>Beispiel:</h2>
+        <pre><code>public class Counter {
+    private int count = 0; // Gemeinsame Ressource
+    Lock lock = new ReantrantLock();
+
+    public void increment() {
+        lock.lock(); // Sperre den Lock
+        try {
+            count++; // Erhöhe den Zähler
+        } finally {
+            lock.unlock(); // Stelle sicher,
+            // dass der Lock immer freigegeben wird
+        }
+    }
+}
+        </code></pre>
         <white-space></white-space>
     </div>
 
@@ -508,25 +676,118 @@ val numbers = [1, 2, 3, 4]; // Liste</code></pre>
         <h1>15 Logikorientierte Programmierung</h1>
         <h2>Prolog</h2>
         <p>
-            
+            <b>Prolog</b> ist eine deklarative Programmiersprache, die auf logischen Regeln basiert. Sie wird häufig in der Künstlichen Intelligenz und für Wissensrepräsentation verwendet.            
         </p>
+        <trenn-strich></trenn-strich>
+        <h2>Syntax</h2>
+        <p>
+            <b>%</b> - Kommentar<br>
+            <b>.</b> - Beendet eine Regel oder Anfrage<br>
+            <b>,</b> - Trennt Bedingungen in Regeln<br>
+            <b>:-</b> - Definiert eine Regel (wenn-dann)<br>
+            <b>?</b> - Anfrage (Fragezeichen am Ende einer Anfrage)<br>
+            <b>;</b> - Oder-Bedingung (logisches Oder)<br>
+            <b>_</b> - Anonymer Platzhalter (Variable, die nicht weiter verwendet wird)<br>
+            <b>X</b> - Variable (beginnt mit einem Großbuchstaben)
+        </p>
+        <trenn-strich></trenn-strich>
+        <h2>Beispiel</h2>
+        <pre><code>% Facts // gegebene Fakten
 
+haschild(alice, charlie). // haschild(Elternteil, Kind)
+haschild(bob, charlie).
+haschild(edith, alice).
+
+woman(alice). // woman(Name)
+woman(edith).
+man(bob).
+man(charlie).
+
+% Rules // Funktionen / Regeln
+
+parent(X) :- haschild(X, _) // Elternteil muss Kind besitzen.
+grandparent(X) :- haschild(X, Z), haschild(Z, _).
+father(X) :- parent(X), man(X).
+mother(X) :- parent(X), woman(X).
+grandfather(X) :- grandparent(X), man(X).
+grandmother(X) :- grandparent(X), woman(X).
+
+% Requests & Results
+
+?- woman(alice). // Abfrage
+    true.   // Result
+
+?- man(alice).
+    false.
+
+?- haschild(X, charlie).
+    X = alice;
+    X = bob.
+
+?- parent(X).
+    X = alice;
+    X = bob;
+    X = edith.
+
+?- grandmother(X).
+    X = edith.
+
+?- parent(charlie).
+    false.</code></pre>
         <white-space></white-space>
     </div>
 
     <div class="container" id="section16">
         <h1>16 Regelbasierte Programmierung</h1>
+        <h2>RuleBook</h2>
         <p>
-            Lorem Ipsum
+            <b>RuleBook</b> ist ein Framework für regelbasierte Programmierung in Java. Es ermöglicht die Definition von Regeln, die auf bestimmte Bedingungen reagieren und Aktionen ausführen können. RuleBook ist nützlich für die Implementierung von Geschäftslogik, Entscheidungsfindung und Workflow-Management.
         </p>
+        <white-space></white-space>
+        <h2>Beispiel:</h2>
+        <pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        RuleBook< Object > ruleBook = RuleBookBuilder
+            .create() // Erstelle ein RuleBook
+            .addRule(r -> r.withNoSpecifiedFactType()
+                    .then(facts -> System.out.print("Hello")))
+            .addRule(r -> r.withNoSpecifiedFactType()
+                    .then(facts -> System.out.println(" World!")))
+            .build(); // Baue das RuleBook
+        ruleBook.run(); // Führe das RuleBook aus
+    }
+        </code></pre>
+        <trenn-strich></trenn-strich>
+        <h2>POJO-Regeln</h2>
+        <p>
+            <b>POJO-Regeln</b> (Plain Old Java Object) sind einfache Java-Klassen, die Regeln definieren. Sie können Bedingungen und Aktionen enthalten und werden in RuleBook verwendet, um Geschäftslogik zu implementieren.
+        </p>
+        <pre><code>@Rule
+public class RuleHelloPerson {
 
+    @Given
+    private List< Person > persons;
+    
+    @When
+    public boolean when() {
+        return !persons.isEmpty();
+        // Bedingung: Liste darf nicht leer sein
+    }
+
+    @Then
+    public void then() {
+        Person person = persons.stream().findAny().get();
+        System.out.println("Hello " + person.getName() + "!");
+        // Aktion: Ausgabe des Namens
+    }
+}</code></pre>
         <white-space></white-space>
     </div>
 
     <div class="container" id="section17">
         <h1>17 GUI-Frameworks & Anwendungen</h1>
         <p>
-            Lorem Ipsum
+            // Irrelevant für SoSe 2025
         </p>
 
         <white-space></white-space>
